@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="jquery-2.0.3.js"></script>
+</head>
+<body>
+    <h1>GET校验</h1>
+
+    <br/>
+    <button id="g1">/get/g1</button>
+    <div>结果：</div>
+    <div id="r1"></div>
+    <script >
+        $("#g1").on("click", function(){
+            $.ajax({
+                url: "/get/attr?getParam1=123456&getParam2=get参数中文校验",
+                type: "get",
+                dataType: "json",
+                data: {
+                    // id: 123456789,
+                    name: "name111",
+                    birthday: new Date().getTime(),
+                    isSingle: true,
+                    salaryNum: "12345678.44"
+                }
+            }).done(function(r){
+                $("#r1").text(r.d);
+            })
+        });
+    </script>
+
+</body>
+</html>
