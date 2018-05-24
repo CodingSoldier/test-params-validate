@@ -4,7 +4,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
 
-@ComponentScan("com.cpq.testvalidate, org.cpq.paramsvalidate")
+@ComponentScan("com.cpq.testvalidate, com.github.codingsoldier.paramsvalidate")
 @SpringBootApplication
 public class TestParamsValidateApplication {
 

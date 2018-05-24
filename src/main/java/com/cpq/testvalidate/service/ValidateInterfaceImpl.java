@@ -1,8 +1,11 @@
 package com.cpq.testvalidate.service;
 
+
 import com.github.codingsoldier.paramsvalidate.ValidateInterface;
+import com.github.codingsoldier.paramsvalidate.bean.Parser;
 import com.github.codingsoldier.paramsvalidate.bean.ResultValidate;
 import com.github.codingsoldier.paramsvalidate.bean.ValidateConfig;
+import com.google.gson.Gson;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.stereotype.Component;
 
@@ -31,6 +34,19 @@ public class ValidateInterfaceImpl implements ValidateInterface, InitializingBea
         return r;
     }
 
+    /**
+     * json解析器
+     * 1、使用默认解析器jackson，直接返回null即可
+     * 2、使用gson，请返回 new Parser(Gson.class);
+     * 3、使用fastjson，请返回new Parser(JSON.class, Feature[].class)
+     * 为了支持fastjson，搞得好坑爹
+     */
+    public Parser getParser(){
+        //return null;
+        return new Parser(Gson.class);
+        //return new Parser(JSON.class, Feature[].class);
+    }
+
     //不使用缓存，返回空map即可
     @Override
     public Map<String, Object> getCache(ValidateConfig validateConfig) {
@@ -48,7 +64,6 @@ public class ValidateInterfaceImpl implements ValidateInterface, InitializingBea
     public void afterPropertiesSet() throws Exception {
 
     }
-
 
     ////获取redis缓存中的校验规则
     //@Override

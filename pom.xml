@@ -56,11 +56,23 @@
 			<version>1.3</version>
 		</dependency>
 
+        <!--json解析-->
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+            <version>1.2.41</version>
+        </dependency>
+        <dependency>
+            <groupId>com.google.code.gson</groupId>
+            <artifactId>gson</artifactId>
+            <version>2.8.5</version>
+        </dependency>
+
 		<!--params-validate-->
 		<dependency>
 			<groupId>com.github.codingsoldier</groupId>
 			<artifactId>params-validate</artifactId>
-			<version>1.0-SNAPSHOT</version>
+			<version>1.1-RELEASE</version>
 		</dependency>
 
 		<!--redis-->
