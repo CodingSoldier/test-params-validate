@@ -1,23 +1,29 @@
 package com.cpq.testvalidate.service;
 
 
+import com.github.codingsoldier.paramsvalidate.Utils;
 import com.github.codingsoldier.paramsvalidate.ValidateInterface;
 import com.github.codingsoldier.paramsvalidate.bean.Parser;
 import com.github.codingsoldier.paramsvalidate.bean.ResultValidate;
 import com.github.codingsoldier.paramsvalidate.bean.ValidateConfig;
 import com.google.gson.Gson;
 import org.springframework.beans.factory.InitializingBean;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Set;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 @Service
 public class ValidateInterfaceImpl implements ValidateInterface, InitializingBean {
 
     //不使用缓存
-    //@Autowired
-    //RedisTemplate redisTemplate;
+    @Autowired
+    RedisTemplate redisTemplate;
 
     //返回json文件基础路径。init.json文件必须放在此目录下
     @Override
@@ -47,60 +53,61 @@ public class ValidateInterfaceImpl implements ValidateInterface, InitializingBea
         //return new Parser(JSON.class, Feature[].class);
     }
 
-    //不使用缓存，返回空map即可
-    @Override
-    public Map<String, Object> getCache(ValidateConfig validateConfig) {
-        return new HashMap<>();
-    }
-
-    //不使用缓存，本方法可不处理
-    @Override
-    public void setCache(ValidateConfig validateConfig, Map<String, Object> json) {
-
-    }
-
-    //不使用缓存，可以不实现InitializingBean，不必实现本方法
-    @Override
-    public void afterPropertiesSet() throws Exception {
-
-    }
-
-    ////获取redis缓存中的校验规则
+    ////不使用缓存，返回空map即可
     //@Override
     //public Map<String, Object> getCache(ValidateConfig validateConfig) {
-    //    String key = createKey(validateConfig);
-    //    return redisTemplate.opsForHash().entries(key);
+    //    return new HashMap<>();
     //}
     //
-    ////设置redis校验规则到缓存中
+    ////不使用缓存，本方法可不处理
     //@Override
     //public void setCache(ValidateConfig validateConfig, Map<String, Object> json) {
-    //    String key = createKey(validateConfig);
-    //    redisTemplate.opsForHash().putAll(key, json);
+    //
     //}
     //
-    ////项目启动时，删除redis缓存校验规则
+    ////不使用缓存，可以不实现InitializingBean，不必实现本方法
     //@Override
     //public void afterPropertiesSet() throws Exception {
-    //    ExecutorService es = Executors.newCachedThreadPool();
-    //    es.submit(new Runnable() {
-    //        @Override
-    //        public void run() {
-    //            Set<String> keys = redisTemplate.keys(basePath().replace("/",":") + "*");
-    //            redisTemplate.delete(keys);
-    //        }
-    //    });
-    //}
     //
-    ////创建缓存key
-    //private String createKey(ValidateConfig validateConfig){
-    //    String basePath = Utils.trimBeginEndChar(basePath(), '/') + "/";
-    //    String fileName = validateConfig.getFile().substring(0, validateConfig.getFile().lastIndexOf(".json"));
-    //    fileName = Utils.trimBeginEndChar(fileName, '/');
-    //    String jsonKey = validateConfig.getKeyName();
-    //    jsonKey = Utils.isBlank(jsonKey) ? jsonKey : (":"+jsonKey);
-    //    String temp = basePath + fileName + jsonKey;
-    //    return temp.replaceAll("[\\/\\-]",":");
     //}
+
+    //获取redis缓存中的校验规则
+    @Override
+    public Map<String, Object> getCache(ValidateConfig validateConfig) {
+        String key = createKey(validateConfig);
+        return redisTemplate.opsForHash().entries(key);
+    }
+
+    //设置校验规则到redis缓存中
+    @Override
+    public void setCache(ValidateConfig validateConfig, Map<String, Object> json) {
+        String key = createKey(validateConfig);
+        redisTemplate.opsForHash().putAll(key, json);
+    }
+
+    //创建key
+    private String createKey(ValidateConfig validateConfig){
+        String basePath = Utils.trimBeginEndChar(basePath(), '/') + "/";
+        String fileName = validateConfig.getFile().substring(0, validateConfig.getFile().lastIndexOf(".json"));
+        fileName = Utils.trimBeginEndChar(fileName, '/');
+        String jsonKey = validateConfig.getKeyName();
+        jsonKey = Utils.isBlank(jsonKey) ? jsonKey : (":"+jsonKey);
+        String temp = basePath + fileName + jsonKey;
+        return temp.replaceAll("[\\/\\-]",":");
+    }
+
+    //项目启动时，删除redis缓存校验规则
+    @Override
+    public void afterPropertiesSet() throws Exception {
+        ExecutorService es = Executors.newCachedThreadPool();
+        es.submit(new Runnable() {
+            @Override
+            public void run() {
+                Set<String> keys = redisTemplate.keys(basePath().replace("/",":") + "*");
+                redisTemplate.delete(keys);
+            }
+        });
+    }
+
 
 }

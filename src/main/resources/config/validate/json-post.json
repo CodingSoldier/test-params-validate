@@ -65,7 +65,6 @@
             "regex": "REGEX_DECIMALS"
         }
     },
-
     "jsonKeyFormData": {
         "name": {
             "request": true,
