@@ -31,7 +31,7 @@ ValidateInterface#getParser()需返回 new Parser(Gson.class)
             "request": "true",
             "minLength": 2,
             "maxLength": 10,
-            "message": "2<=长度<=10"
+//            "message": "2<=长度<=10"
         }
     },
     "hobbyList": {
