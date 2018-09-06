@@ -12,9 +12,8 @@ import java.util.Map;
 public class PostController {
 
     @PostMapping("/p1/vo")
-    //@ParamsValidate(file = "json-post.json")    //getParser()也要修改
-    @ParamsValidate("json-post-gson.json")   //getParser()也要修改
-    //@ParamsValidate(file = "json-post-fastjson.json")  //getParser()也要修改
+    //@ParamsValidate("json-post-one.json")
+    @ParamsValidate(value = "json-post-part.json", keyName = "vo1")
     public Object p1(@RequestBody UserVo userVo, @RequestParam Map<String, Object> param) throws Exception{
         userVo.setValidateMessage("参数传递正确，校验成功");
         return userVo;
