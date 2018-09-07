@@ -22,7 +22,7 @@ import java.util.concurrent.Executors;
 @Component
 public class ValidateInterfaceImpl extends ValidateInterfaceAdapter implements  InitializingBean {
 
-    //不使用缓存
+    //存
     @Autowired
     RedisTemplate redisTemplate;
 
@@ -35,11 +35,22 @@ public class ValidateInterfaceImpl extends ValidateInterfaceAdapter implements  
     //参数校验未通过, 返回自定义数据给客户端的数据
     @Override
     public Object validateNotPass(ResultValidate resultValidate) {
+        Set<String> msgSet = resultValidate.getMsgSet();
         Map<String, Object> r = new HashMap<>();
-        r.put("success", resultValidate.isPass());
-        r.put("msg", resultValidate.getMsgSet());
+        r.put("code", resultValidate.isPass() ? 0 : 101);
+        r.put("data", msgSet);
         return r;
     }
+
+    /**
+     * 校验级别
+     * PvLevel.STRICT  严格模式，发生异常，校验不通过，默认
+     * PvLevel.LOOSE   宽松模式，发生异常，不校验
+     */
+    //@Override
+    //public String getLevel(){
+    //    return PvLevel.STRICT;
+    //}
 
     /**
      * json解析器
@@ -57,21 +68,21 @@ public class ValidateInterfaceImpl extends ValidateInterfaceAdapter implements  
      * 不使用缓存，可不覆盖此方法
      * 获取redis缓存中的校验规则
      */
-    @Override
-    public Map<String, Object> getCache(ValidateConfig validateConfig) {
-        String key = createKey(validateConfig);
-        return redisTemplate.opsForHash().entries(key);
-    }
+    //@Override
+    //public Map<String, Object> getCache(ValidateConfig validateConfig) {
+    //    String key = createKey(validateConfig);
+    //    return redisTemplate.opsForHash().entries(key);
+    //}
 
     /**
      * 不使用缓存，可不覆盖此方法
      * 设置redis校验规则到缓存中
      */
-    @Override
-    public void setCache(ValidateConfig validateConfig, Map<String, Object> json) {
-        String key = createKey(validateConfig);
-        redisTemplate.opsForHash().putAll(key, json);
-    }
+    //@Override
+    //public void setCache(ValidateConfig validateConfig, Map<String, Object> json) {
+    //    String key = createKey(validateConfig);
+    //    redisTemplate.opsForHash().putAll(key, json);
+    //}
 
 
     //创建缓存key
@@ -79,7 +90,7 @@ public class ValidateInterfaceImpl extends ValidateInterfaceAdapter implements  
         String basePath = ValidateUtils.trimBeginEndChar(basePath(), '/') + "/";
         String fileName = validateConfig.getFile().substring(0, validateConfig.getFile().lastIndexOf(".json"));
         fileName = ValidateUtils.trimBeginEndChar(fileName, '/');
-        String jsonKey = validateConfig.getKeyName();
+        String jsonKey = validateConfig.getKey();
         jsonKey = ValidateUtils.isBlank(jsonKey) ? jsonKey : (":"+jsonKey);
         String temp = basePath + fileName + jsonKey;
         return temp.replaceAll("[\\/\\-]",":");

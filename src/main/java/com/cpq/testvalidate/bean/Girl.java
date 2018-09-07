@@ -1,15 +1,15 @@
 package com.cpq.testvalidate.bean;
 
 public class Girl {
-    private Boolean isMarry;
+    private Boolean marry;
     private String name;
 
     public Boolean getMarry() {
-        return isMarry;
+        return marry;
     }
 
     public void setMarry(Boolean marry) {
-        isMarry = marry;
+        this.marry = marry;
     }
 
     public String getName() {

@@ -1,0 +1,45 @@
+package com.cpq.testvalidate.controller;
+
+
+import com.cpq.testvalidate.bean.UserVo;
+import com.github.codingsoldier.paramsvalidate.ParamsValidate;
+import org.springframework.web.bind.annotation.*;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.util.HashMap;
+import java.util.Map;
+
+@RestController
+@RequestMapping("/validate")
+public class ValidateController {
+
+    @PostMapping("/post/map")
+    //@ParamsValidate("json-post-one.json")
+    @ParamsValidate(value = "json-post-part-jackson.json", key = "map")
+    public Object p1(HttpServletRequest request, HttpServletResponse response,@RequestBody Map<String, Object> map) throws Exception{
+        Map<String, Object> map1 = new HashMap<>();
+        return map;
+    }
+
+    @PostMapping("/post/vo")
+    @ParamsValidate(value = "json-post-part-jackson.json", key = "vo")
+    public Object p2(HttpServletRequest request, HttpServletResponse response,@RequestBody UserVo userVo) throws Exception{
+
+        return userVo;
+    }
+
+    @GetMapping("/get/id")
+    @ParamsValidate(file = "json-get-one.json")
+    public Map<String, Object> g1(String name) throws Exception{
+        return new HashMap<String, Object>(){{put("name",name);}};
+    }
+
+    @RequestMapping("/get/user-vo")
+    @ParamsValidate(file = "json-get-part-fastjson.json")
+    public Map<String, Object> vo(HttpServletRequest request, UserVo userVo) throws Exception {
+
+        return new HashMap<String, Object>(){{put("r",userVo);}};
+    }
+
+}

@@ -4,20 +4,13 @@ import java.math.BigDecimal;
 import java.util.List;
 
 public class UserVo extends User {
-    private String validateMessage;
     private float salaryNum;
-    private Girl girl;
-    private List<Dream> dreamList;
-    private List<String> hobbyList;
     private BigDecimal bigNum;
-
-    public String getValidateMessage() {
-        return validateMessage;
-    }
-
-    public void setValidateMessage(String validateMessage) {
-        this.validateMessage = validateMessage;
-    }
+    private Girl girl;
+    private Family family;
+    private List<String> hobbyList;
+    private List<Dream> dreamList;
+    private List<BaoBao> baoBaoList;
 
     public float getSalaryNum() {
         return salaryNum;
@@ -43,6 +36,14 @@ public class UserVo extends User {
         this.dreamList = dreamList;
     }
 
+    public BigDecimal getBigNum() {
+        return bigNum;
+    }
+
+    public void setBigNum(BigDecimal bigNum) {
+        this.bigNum = bigNum;
+    }
+
     public List<String> getHobbyList() {
         return hobbyList;
     }
@@ -51,11 +52,19 @@ public class UserVo extends User {
         this.hobbyList = hobbyList;
     }
 
-    public BigDecimal getBigNum() {
-        return bigNum;
+    public Family getFamily() {
+        return family;
     }
 
-    public void setBigNum(BigDecimal bigNum) {
-        this.bigNum = bigNum;
+    public void setFamily(Family family) {
+        this.family = family;
+    }
+
+    public List<BaoBao> getBaoBaoList() {
+        return baoBaoList;
+    }
+
+    public void setBaoBaoList(List<BaoBao> baoBaoList) {
+        this.baoBaoList = baoBaoList;
     }
 }
