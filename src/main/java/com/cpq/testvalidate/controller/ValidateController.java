@@ -3,6 +3,7 @@ package com.cpq.testvalidate.controller;
 
 import com.cpq.testvalidate.bean.UserVo;
 import com.github.codingsoldier.paramsvalidate.ParamsValidate;
+import com.github.codingsoldier.paramsvalidate.PvLevel;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
@@ -23,7 +24,7 @@ public class ValidateController {
     }
 
     @PostMapping("/post/vo")
-    @ParamsValidate(value = "json-post-part-jackson.json", key = "vo")
+    @ParamsValidate(value = "json-post-part-jackson.json", key = "vo", level = PvLevel.STRICT)
     public Object p2(HttpServletRequest request, HttpServletResponse response,@RequestBody UserVo userVo) throws Exception{
 
         return userVo;
