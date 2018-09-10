@@ -3,7 +3,6 @@ package com.cpq.testvalidate.service;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.parser.Feature;
-import com.github.codingsoldier.paramsvalidate.PvLevel;
 import com.github.codingsoldier.paramsvalidate.ValidateInterfaceAdapter;
 import com.github.codingsoldier.paramsvalidate.ValidateUtils;
 import com.github.codingsoldier.paramsvalidate.bean.Parser;
@@ -48,10 +47,10 @@ public class ValidateInterfaceImpl extends ValidateInterfaceAdapter implements  
      * PvLevel.STRICT  严格模式，发生异常，校验不通过，默认（可不覆盖此方法）
      * PvLevel.LOOSE   宽松模式，发生异常，不校验
      */
-    @Override
-    public String getLevel(){
-        return PvLevel.LOOSE;
-    }
+    //@Override
+    //public String getLevel(){
+    //    return PvLevel.LOOSE;
+    //}
 
     /**
      * json解析器
