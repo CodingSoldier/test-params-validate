@@ -3,7 +3,6 @@ package com.cpq.testvalidate.controller;
 
 import com.cpq.testvalidate.bean.UserVo;
 import com.github.codingsoldier.paramsvalidate.ParamsValidate;
-import com.github.codingsoldier.paramsvalidate.PvLevel;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
@@ -16,22 +15,23 @@ import java.util.Map;
 public class ValidateController {
 
     @PostMapping("/post/map")
-    //@ParamsValidate("json-post-one.json")
-    @ParamsValidate(value = "json-post-part-jackson.json", key = "map")
+    @ParamsValidate("json-post-one.json")
+    //@ParamsValidate(value = "json-post-part-jackson.json", key = "map")
     public Object p1(HttpServletRequest request, HttpServletResponse response,@RequestBody Map<String, Object> map) throws Exception{
         Map<String, Object> map1 = new HashMap<>();
         return map;
     }
 
     @PostMapping("/post/vo")
-    @ParamsValidate(value = "json-post-part-jackson.json", key = "vo", level = PvLevel.STRICT)
+    @ParamsValidate(value = "json-post-part-jackson.json", key = "vo")
     public Object p2(HttpServletRequest request, HttpServletResponse response,@RequestBody UserVo userVo) throws Exception{
 
         return userVo;
     }
 
     @GetMapping("/get/id")
-    @ParamsValidate(file = "json-get-one.json", key = "name")
+    @ParamsValidate(file = "json-get-one.json")
+    //@ParamsValidate(file = "json-get-one.json" , key = "name")
     public Map<String, Object> g1(String name) throws Exception{
         return new HashMap<String, Object>(){{put("name",name);}};
     }
