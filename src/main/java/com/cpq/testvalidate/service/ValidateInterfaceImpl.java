@@ -6,16 +6,12 @@ import com.alibaba.fastjson.parser.Feature;
 import com.github.codingsoldier.paramsvalidate.ValidateInterfaceAdapter;
 import com.github.codingsoldier.paramsvalidate.ValidateUtils;
 import com.github.codingsoldier.paramsvalidate.bean.Parser;
-import com.github.codingsoldier.paramsvalidate.bean.ResultValidate;
 import com.github.codingsoldier.paramsvalidate.bean.ValidateConfig;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Component;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -33,19 +29,9 @@ public class ValidateInterfaceImpl extends ValidateInterfaceAdapter implements  
         return "config/validate/";
     }
 
-    //参数校验未通过, 返回自定义数据给客户端的数据
-    @Override
-    public Object validateNotPass(ResultValidate resultValidate) {
-        List<String> msgList = resultValidate.getMsgList();
-        Map<String, Object> r = new HashMap<>();
-        r.put("code", resultValidate.isPass() ? 0 : 101);
-        r.put("data", msgList);
-        return r;
-    }
-
     /**
      * 校验级别
-     * PvLevel.STRICT  严格模式，发生异常，校验不通过，默认（可不覆盖此方法）
+     * PvLevel.STRICT  严格模式，发生异常，校验不通过，默认
      * PvLevel.LOOSE   宽松模式，发生异常，不校验
      */
     //@Override
@@ -64,6 +50,12 @@ public class ValidateInterfaceImpl extends ValidateInterfaceAdapter implements  
         //return new Parser(Gson.class);
         return new Parser(JSON.class, Feature[].class);
     }
+
+    //参数校验未通过, 返回自定义数据给客户端的数据
+    //@Override
+    //public Object validateNotPass(ResultValidate resultValidate) {
+    //
+    //};
 
     /**
      * 不使用缓存，可不覆盖此方法
