@@ -6,12 +6,15 @@ import com.alibaba.fastjson.parser.Feature;
 import com.github.codingsoldier.paramsvalidate.ValidateInterfaceAdapter;
 import com.github.codingsoldier.paramsvalidate.ValidateUtils;
 import com.github.codingsoldier.paramsvalidate.bean.Parser;
+import com.github.codingsoldier.paramsvalidate.bean.ResultValidate;
 import com.github.codingsoldier.paramsvalidate.bean.ValidateConfig;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Component;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -52,10 +55,13 @@ public class ValidateInterfaceImpl extends ValidateInterfaceAdapter implements  
     }
 
     //参数校验未通过, 返回自定义数据给客户端的数据
-    //@Override
-    //public Object validateNotPass(ResultValidate resultValidate) {
-    //
-    //};
+    @Override
+    public Object validateNotPass(ResultValidate resultValidate) {
+        Map<String, Object> r = new HashMap<>();
+        r.put("code", resultValidate.isPass() ? 0 : 101);
+        r.put("data", resultValidate.getMsgList());  //可取出ResultValidate.msgList中的信息，组装后返回给前端
+        return r;
+    };
 
     /**
      * 不使用缓存，可不覆盖此方法
