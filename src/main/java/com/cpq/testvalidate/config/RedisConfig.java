@@ -1,4 +1,4 @@
-package com.cpq.testvalidate;
+package com.cpq.testvalidate.config;
 
 
 import com.fasterxml.jackson.annotation.JsonAutoDetect;

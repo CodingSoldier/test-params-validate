@@ -1,0 +1,91 @@
+{
+  "id": "",
+  "name": "",
+  "friend": {
+    "nice": "",
+    "name": ""
+  },
+  "family": {
+    "num": "",
+    "house": {
+      "area": "",
+      "houseName": "",
+      "window":{
+        "windowHeight":""
+      }
+    }
+  },
+  "goddess":{
+    "goddessName": "",
+    "backupList":[{
+      "handsome": "",
+      "result":"",
+      "girl":{
+        "girlName":"",
+        "age":""
+      }
+    },{
+      "handsome": "",
+      "result":"",
+      "girl":{
+        "girlName":"",
+        "age":""
+      }
+    }]
+  },
+  "hobbyList": ["",""],
+  "dreamList": [
+    {
+      "txt": "",
+      "exe": "",
+      "time": "",
+      "money": "",
+      "achieveList":["", ""]
+    },{
+      "txt": "",
+      "exe": "",
+      "time": "",
+      "money": "",
+      "achieveList":["", ""]
+    }
+  ],
+  "baoBaoList": [
+    {
+      "brand": "",
+      "card": {
+        "num": "",
+        "cardName": "",
+        "consume":{
+          "orderList":[{
+            "orderId":"",
+            "time":"",
+            "money":""
+          },{
+            "orderId":"",
+            "time":"",
+            "money":""
+          }],
+          "input":""
+        }
+      }
+    },{
+      "brand": "",
+      "card": {
+        "num": "",
+        "cardName": "",
+        "consume":{
+          "orderList":[{
+            "orderId":"",
+            "time":"",
+            "money":""
+          },{
+            "orderId":"",
+            "time":"",
+            "money":""
+          }],
+          "input":""
+        }
+      }
+    }
+  ]
+}

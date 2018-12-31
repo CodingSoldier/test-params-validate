@@ -1,4 +1,4 @@
-package com.cpq.testvalidate.utils;
+package com.cpq.testvalidate.config;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

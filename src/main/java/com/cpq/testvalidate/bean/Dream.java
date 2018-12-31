@@ -1,21 +1,14 @@
 package com.cpq.testvalidate.bean;
 
 import java.util.Date;
+import java.util.List;
 
-public class Dream {
-
+public class Dream{
     private String txt;
     private String exe;
     private Date time;
-    private Double money;
-
-    public Date getTime() {
-        return time;
-    }
-
-    public void setTime(Date time) {
-        this.time = time;
-    }
+    private int money;
+    private List<String> achieveList;
 
     public String getTxt() {
         return txt;
@@ -33,11 +26,27 @@ public class Dream {
         this.exe = exe;
     }
 
-    public Double getMoney() {
+    public Date getTime() {
+        return time;
+    }
+
+    public void setTime(Date time) {
+        this.time = time;
+    }
+
+    public int getMoney() {
         return money;
     }
 
-    public void setMoney(Double money) {
+    public void setMoney(int money) {
         this.money = money;
+    }
+
+    public List<String> getAchieveList() {
+        return achieveList;
+    }
+
+    public void setAchieveList(List<String> achieveList) {
+        this.achieveList = achieveList;
     }
 }
