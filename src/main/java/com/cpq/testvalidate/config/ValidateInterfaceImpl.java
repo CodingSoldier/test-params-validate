@@ -65,12 +65,12 @@ public class ValidateInterfaceImpl extends ValidateInterfaceAdapter implements  
         Map<String, String> data = new TreeMap<>();
         for (Map<String, String> elemMap:msgList){
             if (elemMap != null){
-                Boolean requestVal = Boolean.parseBoolean(elemMap.get(PvMsg.REQUEST));
-                String minVal = elemMap.get(PvMsg.MIN_VALUE);
-                String maxVal = elemMap.get(PvMsg.MAX_VALUE);
-                String minLen = elemMap.get(PvMsg.MIN_LENGTH);
-                String maxLen = elemMap.get(PvMsg.MAX_LENGTH);
-                String jsonMsg = elemMap.get(PvMsg.MESSAGE);
+                Boolean requestVal = Boolean.parseBoolean(elemMap.get(PvConst.REQUEST));
+                String minVal = elemMap.get(PvConst.MIN_VALUE);
+                String maxVal = elemMap.get(PvConst.MAX_VALUE);
+                String minLen = elemMap.get(PvConst.MIN_LENGTH);
+                String maxLen = elemMap.get(PvConst.MAX_LENGTH);
+                String jsonMsg = elemMap.get(PvConst.MESSAGE);
 
                 String message = "";
                 message = PvUtil.isNotBlankObj(jsonMsg) ? (message+jsonMsg+"，") : message;
@@ -82,7 +82,7 @@ public class ValidateInterfaceImpl extends ValidateInterfaceAdapter implements  
                 message = "".equals(message) ? "未通过校验，" : message;
                 message = message.substring(0, message.length()-1);
 
-                String name = elemMap.get(PvMsg.NAME);
+                String name = elemMap.get(PvConst.NAME);
                 data.put(name, message);
             }
         }

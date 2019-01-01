@@ -6,6 +6,7 @@ import com.github.codingsoldier.paramsvalidate.PvUtil;
 import org.junit.Test;
 
 import java.io.File;
+import java.util.Collection;
 import java.util.Map;
 
 public class Test01 {
@@ -25,9 +26,10 @@ public class Test01 {
 
     @Test
     public void test2() throws Exception{
-        Double.parseDouble(null);
+        Object d = null;
+        System.out.println(d instanceof Collection);
+        //System.out.println(d == 0);
     }
-
 
 }
 

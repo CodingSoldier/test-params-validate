@@ -96,5 +96,23 @@ public class AutoTestMap {
         return map1;
     }
 
+    @PostMapping("/hobbyListTest01")
+    @ParamsValidate(file = "/autotest/validate-file.json", key = "hobbyListTest01")
+    public Object hobbyListTest01(HttpServletRequest request, HttpServletResponse response, @RequestBody Map<String, Object> map) throws Exception{
+        Map<String, Object> map1 = new HashMap<>();
+        map1.put("code", 0);
+        map1.put("data", "成功");
+        return map1;
+    }
+
+    @PostMapping("/schoolClassListTest01")
+    @ParamsValidate(file = "/autotest/validate-file.json", key = "schoolClassListTest01")
+    public Object schoolClassListTest01(HttpServletRequest request, HttpServletResponse response, @RequestBody Map<String, Object> map) throws Exception{
+        Map<String, Object> map1 = new HashMap<>();
+        map1.put("code", 0);
+        map1.put("data", "成功");
+        return map1;
+    }
+
 
 }

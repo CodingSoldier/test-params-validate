@@ -8,6 +8,7 @@ public class UserVo extends User {
     private Family family;
     private Goddess goddess;
     private List<String> hobbyList;
+    private List<List<String>> schoolClassList;
     private List<Dream> dreamList;
     private List<Baobao> baoBaoList;
 
@@ -41,6 +42,14 @@ public class UserVo extends User {
 
     public void setHobbyList(List<String> hobbyList) {
         this.hobbyList = hobbyList;
+    }
+
+    public List<List<String>> getSchoolClassList() {
+        return schoolClassList;
+    }
+
+    public void setSchoolClassList(List<List<String>> schoolClassList) {
+        this.schoolClassList = schoolClassList;
     }
 
     public List<Dream> getDreamList() {

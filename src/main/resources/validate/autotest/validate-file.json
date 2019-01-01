@@ -968,6 +968,38 @@
                 }
             }
         }
+    },
+
+    "hobbyListTest01":{
+        "hobbyList":{
+            "wasCollection": true,
+            "maxLength": 3,
+            "request":true,
+            "elem":{
+                "request":true,
+                "maxLength": 200,
+                "regex": "REGEX_POSITIVE_NUM",
+                "message": "num必须是数字"
+            }
+        }
+    },
+
+    "schoolClassListTest01":{
+        "schoolClassList":{
+            "wasCollection": true,
+            "request":true,
+            "elem":{
+                "wasCollection": true,
+                "request":true,
+                "maxLength": 2,
+                "elem":{
+                    "request":true,
+                    "maxLength": 4,
+                    "regex": "REGEX_WORD",
+                    "message": "字母数字中文"
+                }
+            }
+        }
     }
 
 }
