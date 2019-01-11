@@ -17,7 +17,7 @@ import java.util.Map;
 public class AutoTestVo {
 
     @PostMapping("/post01")
-    @ParamsValidate(value = "/autotest/validate-file.json", key = "all01")
+    //@ParamsValidate(value = "/autotest/validate-file.json", key = "all01")
     public Object postMap(HttpServletRequest request, HttpServletResponse response, @RequestBody UserVo vo) throws Exception{
         Map<String, Object> map1 = new HashMap<>();
         map1.put("code", 0);

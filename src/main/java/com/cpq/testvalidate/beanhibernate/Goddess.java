@@ -1,11 +1,11 @@
-package com.cpq.testvalidate.bean;
+package com.cpq.testvalidate.beanhibernate;
 
 import java.util.List;
 
 public class Goddess{
     private Boolean marry;
     private String goddessName;
-    private List<MaleGod> maleGodList;
+    private List<Backup> backupList;
 
     public Boolean getMarry() {
         return marry;
@@ -23,20 +23,20 @@ public class Goddess{
         this.goddessName = goddessName;
     }
 
-    public List<MaleGod> getMaleGodList() {
-        return maleGodList;
+    public List<Backup> getBackupList() {
+        return backupList;
     }
 
-    public void setMaleGodList(List<MaleGod> maleGodList) {
-        this.maleGodList = maleGodList;
+    public void setBackupList(List<Backup> backupList) {
+        this.backupList = backupList;
     }
 
-    static class MaleGod {
+    static class Backup{
         private Integer height;
         private Boolean rich;
         private Boolean handsome;
         private String result;
-        private Guy guy;
+        private Girl girl;
 
         public Integer getHeight() {
             return height;
@@ -70,24 +70,24 @@ public class Goddess{
             this.result = result;
         }
 
-        public Guy getGuy() {
-            return guy;
+        public Girl getGirl() {
+            return girl;
         }
 
-        public void setGuy(Guy guy) {
-            this.guy = guy;
+        public void setGirl(Girl girl) {
+            this.girl = girl;
         }
 
-        static class Guy {
-            private String guyName;
+        static class Girl{
+            private String girlName;
             private Integer age;
 
-            public String getGuyName() {
-                return guyName;
+            public String getGirlName() {
+                return girlName;
             }
 
-            public void setGuyName(String guyName) {
-                this.guyName = guyName;
+            public void setGirlName(String girlName) {
+                this.girlName = girlName;
             }
 
             public Integer getAge() {

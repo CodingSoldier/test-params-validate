@@ -10,5 +10,4 @@ public class TestParamsValidateApplication {
 		SpringApplication.run(TestParamsValidateApplication.class, args);
 	}
 
-
 }

@@ -1,15 +1,20 @@
-package com.cpq.testvalidate.bean;
+package com.cpq.testvalidate.beanhibernate;
 
+import javax.validation.Valid;
+import javax.validation.constraints.NotNull;
 import java.util.List;
 
 public class UserVo extends User {
 
+    @Valid
+    @NotNull
     private Friend friend;
     private Family family;
     private Goddess goddess;
     private List<String> hobbyList;
     private List<List<String>> schoolClassList;
-    private List<List<Cate>> diningHallList;
+
+    @Valid
     private List<Dream> dreamList;
     private List<Baobao> baoBaoList;
 
@@ -67,14 +72,6 @@ public class UserVo extends User {
 
     public void setBaoBaoList(List<Baobao> baoBaoList) {
         this.baoBaoList = baoBaoList;
-    }
-
-    public List<List<Cate>> getDiningHallList() {
-        return diningHallList;
-    }
-
-    public void setDiningHallList(List<List<Cate>> diningHallList) {
-        this.diningHallList = diningHallList;
     }
 }
 
