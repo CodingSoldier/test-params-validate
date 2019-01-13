@@ -35,18 +35,11 @@
 			<scope>test</scope>
 		</dependency>
 
-		<!--fileupload-->
-		<dependency>
-			<groupId>commons-fileupload</groupId>
-			<artifactId>commons-fileupload</artifactId>
-			<version>1.3</version>
-		</dependency>
-
 		<!--params-validate-->
 		<dependency>
 			<groupId>com.github.codingsoldier</groupId>
 			<artifactId>params-validate</artifactId>
-			<version>1.7.3-RELEASE</version>
+			<version>1.8-RELEASE</version>
 			<!--最新版本请查看：
 			http://search.maven.org/#search%7Cga%7C1%7Cg%3A%22com.github.codingsoldier%22-->
 			<exclusions>
@@ -85,16 +78,6 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-devtools</artifactId>
 			<optional>true</optional>
-		</dependency>
-
-		<!--validate校验-->
-		<dependency>
-			<groupId>org.hibernate</groupId>
-			<artifactId>hibernate-validator</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>com.fasterxml.jackson.core</groupId>
-			<artifactId>jackson-databind</artifactId>
 		</dependency>
 
 	</dependencies>

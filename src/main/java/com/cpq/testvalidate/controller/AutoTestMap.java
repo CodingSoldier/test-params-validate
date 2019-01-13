@@ -85,107 +85,94 @@ public class AutoTestMap {
         return map1;
     }
 
+    @PostMapping("/goddessListFalseTest")
+    @ParamsValidate(value = "/autotest/validate-file.json", key = "goddessListFalse")
+    public Object goddessListFalseTest(@RequestBody Map<String, Object> map){
+        Map<String, Object> map1 = new HashMap<>();
+        map1.put("code", 0);
+        map1.put("data", "成功");
+        return map1;
+    }
 
+    @PostMapping("/dreamListtest")
+    @ParamsValidate(value = "/autotest/validate-file.json", key = "dreamList")
+    public Object dreamListtest(@RequestBody Map<String, Object> map){
+        Map<String, Object> map1 = new HashMap<>();
+        map1.put("code", 0);
+        map1.put("data", "成功");
+        return map1;
+    }
 
+    @PostMapping("/dreamListTest02")
+    @ParamsValidate(value = "/autotest/validate-file.json", key = "dreamListTest02")
+    public Object dreamListTest02(@RequestBody Map<String, Object> map){
+        Map<String, Object> map1 = new HashMap<>();
+        map1.put("code", 0);
+        map1.put("data", "成功");
+        return map1;
+    }
 
+    @PostMapping("/dreamListTest021")
+    @ParamsValidate(value = "/autotest/validate-file.json", key = "dreamListTest021")
+    public Object dreamListTest021(@RequestBody Map<String, Object> map){
+        Map<String, Object> map1 = new HashMap<>();
+        map1.put("code", 0);
+        map1.put("data", "成功");
+        return map1;
+    }
 
+    @PostMapping("/dreamListTest022")
+    @ParamsValidate(value = "/autotest/validate-file.json", key = "dreamListTest022")
+    public Object dreamListTest022(@RequestBody Map<String, Object> map){
+        Map<String, Object> map1 = new HashMap<>();
+        map1.put("code", 0);
+        map1.put("data", "成功");
+        return map1;
+    }
 
+    @PostMapping("/dreamListTest03")
+    @ParamsValidate(value = "/autotest/validate-file.json", key = "dreamListTest03")
+    public Object dreamListTest03(@RequestBody Map<String, Object> map){
+        Map<String, Object> map1 = new HashMap<>();
+        map1.put("code", 0);
+        map1.put("data", "成功");
+        return map1;
+    }
 
+    @PostMapping("/baoBaoList")
+    @ParamsValidate(value = "/autotest/validate-file.json", key = "baoBaoList")
+    public Object baoBaoList(@RequestBody Map<String, Object> map){
+        Map<String, Object> map1 = new HashMap<>();
+        map1.put("code", 0);
+        map1.put("data", "成功");
+        return map1;
+    }
 
+    @PostMapping("/baoBaoListRequest")
+    @ParamsValidate(value = "/autotest/validate-file.json", key = "baoBaoListRequest")
+    public Object baoBaoListRequest(@RequestBody Map<String, Object> map){
+        Map<String, Object> map1 = new HashMap<>();
+        map1.put("code", 0);
+        map1.put("data", "成功");
+        return map1;
+    }
 
+    @PostMapping("/baoBaoListRequest02")
+    @ParamsValidate(value = "/autotest/validate-file.json", key = "baoBaoListRequest02")
+    public Object baoBaoListRequest02(@RequestBody Map<String, Object> map){
+        Map<String, Object> map1 = new HashMap<>();
+        map1.put("code", 0);
+        map1.put("data", "成功");
+        return map1;
+    }
 
-
-
-
-
-
-
-    //@PostMapping("/post01")
-    ////@ParamsValidate(value = "/autotest/validate-file.json", key = "all01")
-    //public Object postMap(@RequestBody Map<String, Object> map){
-    //    Map<String, Object> map1 = new HashMap<>();
-    //    map1.put("code", 0);
-    //    map1.put("data", "成功");
-    //    return map1;
-    //}
-    //
-
-    //
-    //@PostMapping("/request01")
-    //@ParamsValidate(value = "/autotest/validate-file.json", key = "testRequest01")
-    //public Object request01(@RequestBody Map<String, Object> map){
-    //    Map<String, Object> map1 = new HashMap<>();
-    //    map1.put("code", 0);
-    //    map1.put("data", "成功");
-    //    return map1;
-    //}
-    //
-    //@PostMapping("/request02")
-    //@ParamsValidate(file = "/autotest/validate-file.json", key = "testRequest2")
-    //public Object request02(@RequestBody Map<String, Object> map){
-    //    Map<String, Object> map1 = new HashMap<>();
-    //    map1.put("code", 0);
-    //    map1.put("data", "成功");
-    //    return map1;
-    //}
-    //
-    //@PostMapping("/listRequestFalse01")
-    //@ParamsValidate(file = "/autotest/validate-file.json", key = "listRequestFalse01")
-    //public Object listRequestFalse01(@RequestBody Map<String, Object> map){
-    //    Map<String, Object> map1 = new HashMap<>();
-    //    map1.put("code", 0);
-    //    map1.put("data", "成功");
-    //    return map1;
-    //}
-    //
-    //@PostMapping("/goddessTest01")
-    //@ParamsValidate(file = "/autotest/validate-file.json", key = "goddessTest01")
-    //public Object goddessTest01(@RequestBody Map<String, Object> map){
-    //    Map<String, Object> map1 = new HashMap<>();
-    //    map1.put("code", 0);
-    //    map1.put("data", "成功");
-    //    return map1;
-    //}
-    //
-    //@PostMapping("/goddessBackupListRequestFalseTest01")
-    //@ParamsValidate(file = "/autotest/validate-file.json", key = "goddessBackupListRequestFalseTest01")
-    //public Object goddessBackupListRequestFalseTest01(@RequestBody Map<String, Object> map){
-    //    Map<String, Object> map1 = new HashMap<>();
-    //    map1.put("code", 0);
-    //    map1.put("data", "成功");
-    //    return map1;
-    //}
-    //
-    //@PostMapping("/goddessBackupListTwoRequestFalseTest02")
-    //@ParamsValidate(file = "/autotest/validate-file.json", key = "goddessBackupListTwoRequestFalseTest02")
-    //public Object goddessBackupListTwoRequestFalseTest02(@RequestBody Map<String, Object> map){
-    //    Map<String, Object> map1 = new HashMap<>();
-    //    map1.put("code", 0);
-    //    map1.put("data", "成功");
-    //    return map1;
-    //}
-    //
-    //@PostMapping("/baoBaoListTest01")
-    //@ParamsValidate(file = "/autotest/validate-file.json", key = "baoBaoListTest01")
-    //public Object baoBaoListTest01(@RequestBody Map<String, Object> map){
-    //    Map<String, Object> map1 = new HashMap<>();
-    //    map1.put("code", 0);
-    //    map1.put("data", "成功");
-    //    return map1;
-    //}
-    //
-    //@PostMapping("/hobbyListTest01")
-    //@ParamsValidate(file = "/autotest/validate-file.json", key = "hobbyListTest01")
-    //public Object hobbyListTest01(@RequestBody Map<String, Object> map){
-    //    Map<String, Object> map1 = new HashMap<>();
-    //    map1.put("code", 0);
-    //    map1.put("data", "成功");
-    //    return map1;
-    //}
-
-
-
-
-
+    @PostMapping("/all01")
+    @ParamsValidate(value = "/autotest/validate-file.json", key = "all01")
+    public Object all01(@RequestBody Map<String, Object> map){
+        Map<String, Object> map1 = new HashMap<>();
+        map1.put("code", 0);
+        map1.put("data", "成功");
+        return map1;
+    }
 
 }

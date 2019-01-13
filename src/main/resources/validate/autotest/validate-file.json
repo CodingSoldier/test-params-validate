@@ -207,10 +207,392 @@
         }
     },
 
+    "goddessListFalse":{
+        "marry": {
+            "regex": "REGEX_BOOLEAN"
+        },
+        "goddessName": {
+            "maxLength": 20,
+            "regex": "REGEX_WORD",
+            "message": "goddessName必须是字母、数字、中文"
+        },
+        "maleGodList":{
+            "maxLength": 2,
+            "message": "maleGodList最大长度是2",
+            "elem":{
+                "height": {
+                    "minValue": 1,
+                    "maxValue": 1000,
+                    "regex": "REGEX_NO_NEGATIVE",
+                    "message": "windowHeight必须是数字"
+                },
+                "rich": {
+                    "regex": "REGEX_BOOLEAN"
+                },
+                "handsome": {
+                    "regex": "REGEX_BOOLEAN"
+                },
+                "result":{
+                    "minLength": 10,
+                    "maxLength": 20,
+                    "regex": "REGEX_WORD",
+                    "message": "result必须是字母、数字、中文"
+                },
+                "guy":{
+                    "guyName":{
+                        "maxLength": 20,
+                        "regex": "[a-zA-Z0-9\\_]+",
+                        "message": "guyName[a-zA-Z0-9\\_]+"
+                    },
+                    "age":{
+                        "minValue":1,
+                        "maxValue": 100,
+                        "regex": "REGEX_POSITIVE_NUM",
+                        "message": "age必须是数字"
+                    }
+                }
+            }
+        }
+    },
 
+    "dreamList":{
+        "minLength": 1,
+        "maxLength": 4,
+        "elem":{
+            "txt": {
+                "maxLength": 20
+            },
+            "exe": {
+                "maxLength": 10
+            },
+            "time": {
+                "regex":"^\\d+$",
+                "message": "只接收时间戳"
+            },
+            "money": {
+                "minValue":1,
+                "maxValue": 10,
+                "regex": "^\\d+$",
+                "message": "money必须是数字"
+            },
+            "achieveList":{
+                "minLength": 2,
+                "maxLength": 3,
+                "elem":{
+                    "minLength": 2,
+                    "maxLength": 20,
+                    "regex": "^[\\u4e00-\\u9fa5a-zA-Z-z0-9]+$",
+                    "message": "achieveList元素必须是字母、数字、中文"
+                }
+            }
+        }
+    },
 
+    "dreamListTest02":{
+        "minLength": 1,
+        "maxLength": 4,
+        "request": false,
+        "elem":{
+            "txt": {
+                "maxLength": 20
+            },
+            "exe": {
+                "maxLength": 10
+            },
+            "time": {
+                "regex":"^\\d+$",
+                "message": "只接收时间戳"
+            },
+            "money": {
+                "request":true,
+                "minValue":1,
+                "maxValue": 10,
+                "regex": "^\\d+$",
+                "message": "money必须是数字"
+            },
+            "achieveList":{
+                "request": false,
+                "minLength": 2,
+                "maxLength": 3,
+                "elem":{
+                    "minLength": 2,
+                    "maxLength": 20,
+                    "regex": "^[\\u4e00-\\u9fa5a-zA-Z-z0-9]+$",
+                    "message": "achieveList元素必须是字母、数字、中文"
+                }
+            }
+        }
+    },
 
+    "dreamListTest021":{
+        "minLength": 1,
+        "maxLength": 4,
+        "elem":{
+            "txt": {
+                "maxLength": 20
+            },
+            "exe": {
+                "maxLength": 10
+            },
+            "time": {
+                "regex":"^\\d+$",
+                "message": "只接收时间戳"
+            },
+            "money": {
+                "request":true,
+                "minValue":1,
+                "maxValue": 10,
+                "regex": "^\\d+$",
+                "message": "money必须是数字"
+            },
+            "achieveList":{
+                "request": false,
+                "minLength": 2,
+                "maxLength": 3,
+                "elem":{
+                    "minLength": 2,
+                    "maxLength": 20,
+                    "regex": "^[\\u4e00-\\u9fa5a-zA-Z-z0-9]+$",
+                    "message": "achieveList元素必须是字母、数字、中文"
+                }
+            }
+        }
+    },
 
+    "dreamListTest022":{
+        "minLength": 1,
+        "maxLength": 4,
+        "elem":{
+            "request": false,
+            "txt": {
+                "maxLength": 20
+            },
+            "exe": {
+                "maxLength": 10
+            },
+            "time": {
+                "regex":"^\\d+$",
+                "message": "只接收时间戳"
+            },
+            "money": {
+                "request":true,
+                "minValue":1,
+                "maxValue": 10,
+                "regex": "^\\d+$",
+                "message": "money必须是数字"
+            },
+            "achieveList":{
+                "request": false,
+                "minLength": 2,
+                "maxLength": 3,
+                "elem":{
+                    "minLength": 2,
+                    "maxLength": 20,
+                    "regex": "^[\\u4e00-\\u9fa5a-zA-Z-z0-9]+$",
+                    "message": "achieveList元素必须是字母、数字、中文"
+                }
+            }
+        }
+    },
+
+    "dreamListTest03":{
+        "maxLength": 4,
+        "elem":{
+            "request": false,
+            "txt": {
+                "maxLength": 20
+            },
+            "exe": {
+                "maxLength": 10
+            },
+            "time": {
+                "regex":"^\\d+$",
+                "message": "只接收时间戳"
+            },
+            "money": {
+                "request":true,
+                "minValue":1,
+                "maxValue": 10,
+                "regex": "^\\d+$",
+                "message": "money必须是数字"
+            },
+            "achieveList":{
+                "request": false,
+                "minLength": 2,
+                "maxLength": 3,
+                "elem":{
+                    "minLength": 2,
+                    "maxLength": 20,
+                    "regex": "^[\\u4e00-\\u9fa5a-zA-Z-z0-9]+$",
+                    "message": "achieveList元素必须是字母、数字、中文"
+                }
+            }
+        }
+    },
+
+    "baoBaoList":{
+        "elem":{
+            "brand": {
+                "maxLength": 20,
+                "regex": "REGEX_WORD",
+                "message": "brand必须是字母、数字、中文"
+            },
+            "price": {
+                "request":true,
+                "maxValue": 200,
+                "regex": "REGEX_DECIMALS",
+                "message": "price必须是数字"
+            },
+            "card": {
+                "num": {
+                    "request":true,
+                    "maxLength": 200,
+                    "regex": "REGEX_POSITIVE_NUM",
+                    "message": "num必须是数字"
+                },
+                "cardName": {
+                    "request":true,
+                    "maxLength": 20,
+                    "regex": "REGEX_WORD",
+                    "message": "cardName必须是字母、数字、中文"
+                },
+                "consume":{
+                    "orderList":{
+                        "elem":{
+                            "request":true,
+                            "maxLength": 20,
+                            "regex": "REGEX_POSITIVE_NUM",
+                            "message": "orderList元素是数字"
+                        }
+                    },
+                    "input":{
+                        "request":true,
+                        "minLength": 2,
+                        "maxLength": 20,
+                        "regex": "REGEX_WORD",
+                        "message": "input必须是字母、数字、中文"
+                    },
+                    "output":{
+                        "maxLength": 10,
+                        "regex": "REGEX_WORD",
+                        "message": "output必须是字母、数字、中文"
+                    }
+                }
+            }
+        }
+    },
+
+    "baoBaoListRequest":{
+        "request":false,
+        "elem":{
+            "request":false,
+            "brand": {
+                "maxLength": 20,
+                "regex": "REGEX_WORD",
+                "message": "brand必须是字母、数字、中文"
+            },
+            "price": {
+                "request":true,
+                "maxValue": 200,
+                "regex": "REGEX_DECIMALS",
+                "message": "price必须是数字"
+            },
+            "card": {
+                "request":false,
+                "num": {
+                    "maxLength": 200,
+                    "regex": "REGEX_POSITIVE_NUM",
+                    "message": "num必须是数字"
+                },
+                "cardName": {
+                    "request":true,
+                    "maxLength": 20,
+                    "regex": "REGEX_WORD",
+                    "message": "cardName必须是字母、数字、中文"
+                },
+                "consume":{
+                    "request":false,
+                    "orderList":{
+                        "request":false,
+                        "elem":{
+                            "request":true,
+                            "maxLength": 20,
+                            "regex": "REGEX_POSITIVE_NUM",
+                            "message": "orderList元素是数字"
+                        }
+                    },
+                    "input":{
+                        "request":true,
+                        "minLength": 2,
+                        "maxLength": 20,
+                        "regex": "REGEX_WORD",
+                        "message": "input必须是字母、数字、中文"
+                    },
+                    "output":{
+                        "maxLength": 10,
+                        "regex": "REGEX_WORD",
+                        "message": "output必须是字母、数字、中文"
+                    }
+                }
+            }
+        }
+    },
+
+    "baoBaoListRequest02":{
+        "request":false,
+        "elem":{
+            "brand": {
+                "maxLength": 20,
+                "regex": "REGEX_WORD",
+                "message": "brand必须是字母、数字、中文"
+            },
+            "price": {
+                "request":true,
+                "maxValue": 200,
+                "regex": "REGEX_DECIMALS",
+                "message": "price必须是数字"
+            },
+            "card": {
+                "request":false,
+                "num": {
+                    "request":true,
+                    "maxLength": 200,
+                    "regex": "REGEX_POSITIVE_NUM",
+                    "message": "num必须是数字"
+                },
+                "cardName": {
+                    "request":true,
+                    "maxLength": 20,
+                    "regex": "REGEX_WORD",
+                    "message": "cardName必须是字母、数字、中文"
+                },
+                "consume":{
+                    "request":false,
+                    "orderList":{
+                        "request":false,
+                        "elem":{
+                            "request":true,
+                            "maxLength": 20,
+                            "regex": "REGEX_POSITIVE_NUM",
+                            "message": "orderList元素是数字"
+                        }
+                    },
+                    "input":{
+                        "request":true,
+                        "minLength": 2,
+                        "maxLength": 20,
+                        "regex": "REGEX_WORD",
+                        "message": "input必须是字母、数字、中文"
+                    },
+                    "output":{
+                        "maxLength": 10,
+                        "regex": "REGEX_WORD",
+                        "message": "output必须是字母、数字、中文"
+                    }
+                }
+            }
+        }
+    },
 
     "all01": {
         "str1": {
@@ -275,12 +657,13 @@
                     "message": "momName必须是字母、数字、中文"
                 },
                 "kindness":{
-                    "maxLength": 200
+                    "maxLength": 10
                 }
             },
             "house": {
+                "request":false,
                 "area":{
-                    "request": true,
+                    "request": false,
                     "minValue": 1,
                     "maxValue": 1000,
                     "regex": "REGEX_NO_NEGATIVE",
@@ -321,8 +704,8 @@
                 "message": "goddessName必须是字母、数字、中文"
             },
             "maleGodList":{
-                "minLength": 10,
-                "maxLength": 20,
+                "maxLength": 2,
+                "message": "maleGodList最大长度是2",
                 "elem":{
                     "height": {
                         "request": true,
@@ -363,34 +746,33 @@
         },
         "hobbyList":{
             "maxLength": 3,
-            "request":true,
+            "request":false,
             "elem":{
-                "request": true,
-                "maxLength": 20,
-                "regex": "\\w+",
-                "message": "hobbyList元素必须是\\w+"
+                "request":true,
+                "minLength": 1,
+                "maxLength": 200,
+                "regex": "^\\d+$",
+                "message": "必须是数字"
             }
         },
         "schoolClassList":{
-            "request":false,
-            "maxLength": 4,
+            "maxLength": 2,
+            "message": "长度不超过2",
             "elem":{
-                "request":true,
-                "maxLength": 4,
-                "elem":{
+                "maxLength": 3,
+                "elem": {
                     "request":true,
-                    "maxLength": 4,
+                    "maxLength": 40,
                     "regex": "REGEX_WORD",
-                    "message": "字母数字中文"
+                    "message": "元素必须是字母数字中文"
                 }
             }
         },
         "diningHallList":{
-            "request":false,
-            "maxLength": 4,
+            "maxLength": 2,
             "elem":{
                 "request":true,
-                "maxLength": 4,
+                "maxLength": 3,
                 "elem": {
                     "cateName": {
                         "request":true,
@@ -408,7 +790,7 @@
             }
         },
         "dreamList":{
-            "request":false,
+            "minLength": 1,
             "maxLength": 4,
             "elem":{
                 "txt": {
@@ -418,40 +800,37 @@
                     "maxLength": 10
                 },
                 "time": {
-                    "request":true
+                    "regex":"^\\d+$",
+                    "message": "只接收时间戳"
                 },
                 "money": {
                     "minValue":1,
                     "maxValue": 10,
-                    "regex": "REGEX_POSITIVE_NUM",
+                    "regex": "^\\d+$",
                     "message": "money必须是数字"
                 },
                 "achieveList":{
-                    "request":false,
-                    "maxLength": 4,
+                    "minLength": 2,
+                    "maxLength": 3,
                     "elem":{
-                        "request":true,
                         "minLength": 2,
                         "maxLength": 20,
-                        "regex": "REGEX_WORD",
+                        "regex": "^[\\u4e00-\\u9fa5a-zA-Z-z0-9]+$",
                         "message": "achieveList元素必须是字母、数字、中文"
                     }
                 }
             }
         },
         "baoBaoList":{
-            "request":false,
-            "maxLength": 4,
-            "elem": {
+            "elem":{
                 "brand": {
-                    "request":true,
                     "maxLength": 20,
                     "regex": "REGEX_WORD",
                     "message": "brand必须是字母、数字、中文"
                 },
                 "price": {
                     "request":true,
-                    "maxLength": 200,
+                    "maxValue": 200,
                     "regex": "REGEX_DECIMALS",
                     "message": "price必须是数字"
                 },
@@ -469,22 +848,23 @@
                         "message": "cardName必须是字母、数字、中文"
                     },
                     "consume":{
-                        "request":false,
                         "orderList":{
-                            "request":true,
-                            "maxLength": 20,
-                            "regex": "REGEX_POSITIVE_NUM",
-                            "message": "cardName数字"
+                            "elem":{
+                                "request":true,
+                                "maxLength": 20,
+                                "regex": "REGEX_POSITIVE_NUM",
+                                "message": "orderList元素是数字"
+                            }
                         },
                         "input":{
                             "request":true,
+                            "minLength": 2,
                             "maxLength": 20,
                             "regex": "REGEX_WORD",
                             "message": "input必须是字母、数字、中文"
                         },
                         "output":{
-                            "request":true,
-                            "maxLength": 20,
+                            "maxLength": 10,
                             "regex": "REGEX_WORD",
                             "message": "output必须是字母、数字、中文"
                         }
@@ -492,656 +872,7 @@
                 }
             }
         }
-    },
-
-    "testRequest01": {
-        "str1": {
-            "request": true,
-            "regex": "REGEX_START_LETTER_NUM",
-            "message": "str1字母开头"
-        },
-        "email": {
-            "request": true,
-            "regex": "REGEX_EMAIL",
-            "message": "email邮箱邮箱邮箱邮箱邮箱错"
-        },
-        "id": {
-            "minLength":10,
-            "maxLength": 100,
-            "regex": "REGEX_CHAR",
-            "message": "id必须是字母、数字"
-        },
-        "name": {
-            "request": true,
-            "maxLength": 20,
-            "regex": "REGEX_WORD",
-            "message": "name必须是字母、数字、中文"
-        },
-        "birthday": {
-            "request": true
-        },
-        "single": {
-            "regex": "REGEX_BOOLEAN"
-        },
-        "salaryNum": {
-            "regex": "REGEX_FLOAT_8_2",
-            "message": "salaryNum必须是数字"
-        },
-        "bigNum": {
-            "request": "true",
-            "message": "bigNum必须是数字"
-        },
-        "friend": {
-            "request": false,   //前端不传friend也可以通过校验
-            "nice": {
-                "regex": "REGEX_BOOLEAN"
-            },
-            "name": {
-                "request": true,
-                "maxLength": 20,
-                "regex": "REGEX_WORD",
-                "message": "name必须是字母、数字、中文"
-            }
-        },
-        "family":{
-            "num":{
-                "minValue":1,
-                "maxValue": 10,
-                "regex": "REGEX_POSITIVE_NUM",
-                "message": "num必须是数字"
-            },
-            "mom":{     //前端不传mom，由于mom.momName为request:true，因此未能通过校验
-                "momName":{
-                    "request": true,
-                    "maxLength": 20,
-                    "regex": "REGEX_WORD",
-                    "message": "momName必须是字母、数字、中文"
-                },
-                "kindness":{
-                    "maxLength": 200
-                }
-            },
-            "house": {
-                "request":false,
-                //house有request:false，前端传值，house可为空。
-                //但house不为空，仅area有值，其他参数houseName、window.windowHeight、window.windowWidth无值
-                //由于houseName、window.windowHeight、window.windowWidth也是request:false，则未能通过校验
-                "area":{
-                    "request": true,
-                    "minValue": 1,
-                    "maxValue": 1000,
-                    "regex": "REGEX_NO_NEGATIVE",
-                    "message": "area必须是数字"
-                },
-                "houseName": {
-                    "request": true,
-                    "maxLength": 10,
-                    "regex": "REGEX_WORD",
-                    "message": "houseName必须是字母、数字、中文"
-                },
-                "window":{
-                    "windowHeight":{
-                        "request": true,
-                        "minValue": 10,
-                        "maxValue": 1000,
-                        "regex": "REGEX_NO_NEGATIVE",
-                        "message": "windowHeight必须是数字"
-                    },
-                    "windowWidth":{
-                        "request": true,
-                        "minValue": 1,
-                        "maxValue": 1000,
-                        "regex": "REGEX_NO_NEGATIVE",
-                        "message": "windowWidth必须是数字"
-                    }
-                }
-            }
-        },
-        "goddess":{
-            "marry": {
-                "regex": "REGEX_BOOLEAN"
-            },
-            "goddessName": {
-                "request": true,
-                "maxLength": 20,
-                "regex": "REGEX_WORD",
-                "message": "goddessName必须是字母、数字、中文"
-            },
-            "maleGodList":{
-                "request": false,
-                "height": {
-                    "request": true,
-                    "minValue": 1,
-                    "maxValue": 1000,
-                    "regex": "REGEX_NO_NEGATIVE",
-                    "message": "windowHeight必须是数字"
-                },
-                "rich": {
-                    "regex": "REGEX_BOOLEAN"
-                },
-                "handsome": {
-                    "regex": "REGEX_BOOLEAN"
-                },
-                "result":{
-                    "request": true,
-                    "minLength": 10,
-                    "maxLength": 20,
-                    "regex": "REGEX_WORD",
-                    "message": "result必须是字母、数字、中文"
-                },
-                "guy":{
-                    "guyName":{
-                        "request": true,
-                        "maxLength": 20,
-                        "regex": "[a-zA-Z0-9\\_]+",
-                        "message": "guyName[a-zA-Z0-9\\_]+"
-                    },
-                    "age":{
-                        "minValue":1,
-                        "maxValue": 100,
-                        "regex": "REGEX_POSITIVE_NUM",
-                        "message": "age必须是数字"
-                    }
-                }
-            }
-        },
-        "hobbyList": {
-            "request": true,
-            "maxLength": 20,
-            "regex": "\\w+",
-            "message": "hobbyList元素必须是\\w+"
-        },
-        "dreamList":{
-            "txt": {
-                "maxLength": 20
-            },
-            "exe": {
-                "maxLength": 10
-            },
-            "time": {
-                "request":true
-            },
-            "money": {
-                "minValue":1,
-                "maxValue": 10,
-                "regex": "REGEX_POSITIVE_NUM",
-                "message": "money必须是数字"
-            },
-            "achieveList":{
-                "request":true,
-                "minLength": 2,
-                "maxLength": 20,
-                "regex": "REGEX_WORD",
-                "message": "achieveList元素必须是字母、数字、中文"
-            }
-        },
-        "baoBaoList":{
-            "brand": {
-                "request":true,
-                "maxLength": 20,
-                "regex": "REGEX_WORD",
-                "message": "brand必须是字母、数字、中文"
-            },
-            "price": {
-                "request":true,
-                "maxLength": 200,
-                "regex": "REGEX_DECIMALS",
-                "message": "price必须是数字"
-            },
-            "card": {
-                "num": {
-                    "request":true,
-                    "maxLength": 200,
-                    "regex": "REGEX_POSITIVE_NUM",
-                    "message": "num必须是数字"
-                },
-                "cardName": {
-                    "request":true,
-                    "maxLength": 20,
-                    "regex": "REGEX_WORD",
-                    "message": "cardName必须是字母、数字、中文"
-                },
-                "consume":{
-                    "request":false,
-                    "orderList":{
-                        "request":true,
-                        "maxLength": 20,
-                        "regex": "REGEX_POSITIVE_NUM",
-                        "message": "cardName数字"
-                    },
-                    "input":{
-                        "request":true,
-                        "maxLength": 20,
-                        "regex": "REGEX_WORD",
-                        "message": "input必须是字母、数字、中文"
-                    },
-                    "output":{
-                        "request":true,
-                        "maxLength": 20,
-                        "regex": "REGEX_WORD",
-                        "message": "output必须是字母、数字、中文"
-                    }
-                }
-            }
-        }
-    },
-
-    "testRequest2": {
-        "str1": {
-            "request": true,
-            "regex": "REGEX_START_LETTER_NUM",
-            "message": "str1字母开头"
-        },
-        "email": {
-            "request": true,
-            "regex": "REGEX_EMAIL",
-            "message": "email邮箱邮箱邮箱邮箱邮箱错"
-        },
-        "id": {
-            "minLength":10,
-            "maxLength": 100,
-            "regex": "REGEX_CHAR",
-            "message": "id必须是字母、数字"
-        },
-        "name": {
-            "request": true,
-            "maxLength": 20,
-            "regex": "REGEX_WORD",
-            "message": "name必须是字母、数字、中文"
-        },
-        "birthday": {
-            "request": true
-        },
-        "single": {
-            "regex": "REGEX_BOOLEAN"
-        },
-        "salaryNum": {
-            "regex": "REGEX_FLOAT_8_2",
-            "message": "salaryNum必须是数字"
-        },
-        "bigNum": {
-            "request": "true",
-            "message": "bigNum必须是数字"
-        },
-        "friend": {
-            "request": false,   //前端不传friend也可以通过校验
-            "nice": {
-                "regex": "REGEX_BOOLEAN"
-            },
-            "name": {
-                "request": true,
-                "maxLength": 20,
-                "regex": "REGEX_WORD",
-                "message": "name必须是字母、数字、中文"
-            }
-        },
-        "family":{
-            "num":{
-                "minValue":1,
-                "maxValue": 10,
-                "regex": "REGEX_POSITIVE_NUM",
-                "message": "num必须是数字"
-            },
-            "mom":{     //前端不传mom，由于mom.momName为request:true，因此未能通过校验
-                "momName":{
-                    "request": true,
-                    "maxLength": 20,
-                    "regex": "REGEX_WORD",
-                    "message": "momName必须是字母、数字、中文"
-                },
-                "kindness":{
-                    "maxLength": 200
-                }
-            },
-            "house": {
-                "request":false,
-                "area":{
-                    "request": true,
-                    "minValue": 1,
-                    "maxValue": 1000,
-                    "regex": "REGEX_NO_NEGATIVE",
-                    "message": "area必须是数字"
-                },
-                "houseName": {
-                    "request": true,
-                    "maxLength": 10,
-                    "regex": "REGEX_WORD",
-                    "message": "houseName必须是字母、数字、中文"
-                },
-                "window":{
-                    "request":false,
-                    "windowHeight":{
-                        "request": true,
-                        "minValue": 10,
-                        "maxValue": 1000,
-                        "regex": "REGEX_NO_NEGATIVE",
-                        "message": "windowHeight必须是数字"
-                    },
-                    "windowWidth":{
-                        "request": true,
-                        "minValue": 1,
-                        "maxValue": 1000,
-                        "regex": "REGEX_NO_NEGATIVE",
-                        "message": "windowWidth必须是数字"
-                    }
-                }
-            }
-        },
-        "goddess":{
-            "marry": {
-                "regex": "REGEX_BOOLEAN"
-            },
-            "goddessName": {
-                "request": true,
-                "maxLength": 20,
-                "regex": "REGEX_WORD",
-                "message": "goddessName必须是字母、数字、中文"
-            },
-            "maleGodList":{
-                "request": false,
-                "height": {
-                    "request": true,
-                    "minValue": 1,
-                    "maxValue": 1000,
-                    "regex": "REGEX_NO_NEGATIVE",
-                    "message": "windowHeight必须是数字"
-                },
-                "rich": {
-                    "regex": "REGEX_BOOLEAN"
-                },
-                "handsome": {
-                    "regex": "REGEX_BOOLEAN"
-                },
-                "result":{
-                    "request": true,
-                    "minLength": 10,
-                    "maxLength": 20,
-                    "regex": "REGEX_WORD",
-                    "message": "result必须是字母、数字、中文"
-                },
-                "guy":{
-                    "guyName":{
-                        "request": true,
-                        "maxLength": 20,
-                        "regex": "[a-zA-Z0-9\\_]+",
-                        "message": "guyName[a-zA-Z0-9\\_]+"
-                    },
-                    "age":{
-                        "minValue":1,
-                        "maxValue": 100,
-                        "regex": "REGEX_POSITIVE_NUM",
-                        "message": "age必须是数字"
-                    }
-                }
-            }
-        },
-        "hobbyList": {
-            "request": true,
-            "maxLength": 20,
-            "regex": "\\w+",
-            "message": "hobbyList元素必须是\\w+"
-        },
-        "dreamList":{
-            "txt": {
-                "maxLength": 20
-            },
-            "exe": {
-                "maxLength": 10
-            },
-            "time": {
-                "request":true
-            },
-            "money": {
-                "minValue":1,
-                "maxValue": 10,
-                "regex": "REGEX_POSITIVE_NUM",
-                "message": "money必须是数字"
-            },
-            "achieveList":{
-                "request":true,
-                "minLength": 2,
-                "maxLength": 20,
-                "regex": "REGEX_WORD",
-                "message": "achieveList元素必须是字母、数字、中文"
-            }
-        },
-        "baoBaoList":{
-            "brand": {
-                "request":true,
-                "maxLength": 20,
-                "regex": "REGEX_WORD",
-                "message": "brand必须是字母、数字、中文"
-            },
-            "price": {
-                "request":true,
-                "maxLength": 200,
-                "regex": "REGEX_DECIMALS",
-                "message": "price必须是数字"
-            },
-            "card": {
-                "num": {
-                    "request":true,
-                    "maxLength": 200,
-                    "regex": "REGEX_POSITIVE_NUM",
-                    "message": "num必须是数字"
-                },
-                "cardName": {
-                    "request":true,
-                    "maxLength": 20,
-                    "regex": "REGEX_WORD",
-                    "message": "cardName必须是字母、数字、中文"
-                },
-                "consume":{
-                    "request":false,
-                    "orderList":{
-                        "request":true,
-                        "maxLength": 20,
-                        "regex": "REGEX_POSITIVE_NUM",
-                        "message": "cardName数字"
-                    },
-                    "input":{
-                        "request":true,
-                        "maxLength": 20,
-                        "regex": "REGEX_WORD",
-                        "message": "input必须是字母、数字、中文"
-                    },
-                    "output":{
-                        "request":true,
-                        "maxLength": 20,
-                        "regex": "REGEX_WORD",
-                        "message": "output必须是字母、数字、中文"
-                    }
-                }
-            }
-        }
-    },
-
-    "listRequestFalse01": {
-        "id": {
-            "minValue":10,
-            "maxValue": 100,
-            "message": "id必须是数字"
-        },
-        "salaryNum": {
-            "minValue":10.01,
-            "maxValue": 100.01,
-            "message": "salaryNum必须是数字"
-        },
-        "bigNum": {
-            "request": "true",
-            "minValue":10.01,
-            "maxValue": 100.01,
-            "message": "bigNum必须是数字"
-        },
-        "hobbyList": {
-            "request": false,
-            "minValue":10,
-            "maxValue": 100,
-            "message": "hobbyList元素必须是数字"
-        }
-    },
-
-    "goddessTest01": {
-
-    },
-
-    "goddessBackupListRequestFalseTest01": {
-        "goddess":{
-            "marry": {
-                "regex": "REGEX_BOOLEAN"
-            },
-            "goddessName": {
-                "request": true,
-                "maxLength": 20,
-                "regex": "REGEX_WORD",
-                "message": "goddessName必须是字母、数字、中文"
-            },
-            "maleGodList":{
-                "request": false,
-                "height": {
-                    "request": true,
-                    "minValue": 1,
-                    "maxValue": 1000,
-                    "regex": "REGEX_NO_NEGATIVE",
-                    "message": "windowHeight必须是数字"
-                },
-                "rich": {
-                    "regex": "REGEX_BOOLEAN"
-                },
-                "handsome": {
-                    "request": false,
-                    "regex": "REGEX_BOOLEAN"
-                },
-                "result":{
-                    "request": true,
-                    "minLength": 10,
-                    "maxLength": 20,
-                    "regex": "REGEX_WORD",
-                    "message": "result必须是字母、数字、中文"
-                },
-                "guy":{
-                    "guyName":{
-                        "request": true,
-                        "maxLength": 20,
-                        "regex": "[a-zA-Z0-9\\_]+",
-                        "message": "guyName[a-zA-Z0-9\\_]+"
-                    },
-                    "age":{
-                        "minValue":1,
-                        "maxValue": 100,
-                        "regex": "REGEX_POSITIVE_NUM",
-                        "message": "age必须是数字"
-                    }
-                }
-            }
-        }
-    },
-
-    "goddessBackupListTwoRequestFalseTest02": {
-        "goddess":{
-            "marry": {
-                "regex": "REGEX_BOOLEAN"
-            },
-            "goddessName": {
-                "request": true,
-                "maxLength": 20
-            },
-            "maleGodList":{
-                "request": false,
-                "height": {
-                    "request": true,
-                    "minValue": 1,
-                    "maxValue": 1000,
-                    "regex": "REGEX_NO_NEGATIVE",
-                    "message": "windowHeight必须是数字"
-                },
-                "rich": {
-                    "regex": "REGEX_BOOLEAN"
-                },
-                "handsome": {
-                    "request": false,
-                    "regex": "REGEX_BOOLEAN"
-                },
-                "result":{
-                    "request": true,
-                    "minLength": 10,
-                    "maxLength": 20,
-                    "regex": "REGEX_WORD",
-                    "message": "result必须是字母、数字、中文"
-                },
-                "guy":{
-                    "request": false,
-                    "guyName":{
-                        "request": true,
-                        "maxLength": 20,
-                        "regex": "[a-zA-Z0-9\\_]+",
-                        "message": "guyName[a-zA-Z0-9\\_]+"
-                    },
-                    "age":{
-                        "minValue":1,
-                        "maxValue": 100,
-                        "regex": "REGEX_POSITIVE_NUM",
-                        "message": "age必须是数字"
-                    }
-                }
-            }
-        }
-    },
-
-    "baoBaoListTest01":{
-        "baoBaoList":{
-            "request":false,
-            "brand": {
-                "maxLength": 20,
-                "regex": "REGEX_WORD",
-                "message": "brand必须是字母、数字、中文"
-            },
-            "price": {
-                "request":true,
-                "maxLength": 200,
-                "regex": "REGEX_DECIMALS",
-                "message": "price必须是数字"
-            },
-            "card": {
-                "num": {
-                    "request":true,
-                    "maxLength": 200,
-                    "regex": "REGEX_POSITIVE_NUM",
-                    "message": "num必须是数字"
-                },
-                "cardName": {
-                    "request":true,
-                    "maxLength": 20,
-                    "regex": "REGEX_WORD",
-                    "message": "cardName必须是字母、数字、中文"
-                },
-                "consume":{
-                    "request":false,
-                    "orderList":{
-                        "request":true,
-                        "maxLength": 20,
-                        "regex": "REGEX_POSITIVE_NUM",
-                        "message": "orderList元素是数字"
-                    },
-                    "input":{
-                        "request":true,
-                        "maxLength": 20,
-                        "regex": "REGEX_WORD",
-                        "message": "input必须是字母、数字、中文"
-                    },
-                    "output":{
-                        "maxLength": 20,
-                        "regex": "REGEX_WORD",
-                        "message": "output必须是字母、数字、中文"
-                    }
-                }
-            }
-        }
     }
-
-
-
-
 
 }
 

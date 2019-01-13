@@ -1,101 +1,144 @@
 package com.cpq.testvalidate.controller;
 
-import com.cpq.testvalidate.bean.UserVo;
+import com.cpq.testvalidate.bean.*;
 import com.github.codingsoldier.paramsvalidate.ParamsValidate;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 @RestController
 @RequestMapping("/vo/auto/test")
 public class AutoTestVo {
 
-    @PostMapping("/post01")
-    //@ParamsValidate(value = "/autotest/validate-file.json", key = "all01")
-    public Object postMap(HttpServletRequest request, HttpServletResponse response, @RequestBody UserVo vo) throws Exception{
+    @PostMapping("/diningHallList")
+    @ParamsValidate(file = "/autotest/validate-file.json", key = "diningHallList")
+    public Object diningHallList(@RequestBody Map<String, List<List<Cate>>> map){
         Map<String, Object> map1 = new HashMap<>();
         map1.put("code", 0);
         map1.put("data", "成功");
         return map1;
     }
 
-    @PostMapping("/testRequestFamily01")
-    @ParamsValidate(value = "/autotest/validate-file.json", key = "testRequestFamily01")
-    public Object testRequestFamily01(HttpServletRequest request, HttpServletResponse response, @RequestBody UserVo vo) throws Exception{
+    @PostMapping("/diningHallListRequestFalse")
+    @ParamsValidate(file = "/autotest/validate-file.json", key = "diningHallListRequestFalse")
+    public Object diningHallListRequestFalse(@RequestBody Map<String, List<List<Cate>>> map){
         Map<String, Object> map1 = new HashMap<>();
         map1.put("code", 0);
         map1.put("data", "成功");
         return map1;
     }
 
-    @PostMapping("/request01")
-    @ParamsValidate(value = "/autotest/validate-file.json", key = "testRequest01")
-    public Object request01(HttpServletRequest request, HttpServletResponse response, @RequestBody UserVo vo) throws Exception{
+    @PostMapping("/family")
+    @ParamsValidate(value = "/autotest/validate-file.json", key = "family")
+    public Object family(@RequestBody Family family){
         Map<String, Object> map1 = new HashMap<>();
         map1.put("code", 0);
         map1.put("data", "成功");
         return map1;
     }
 
-    @PostMapping("/request02")
-    @ParamsValidate(file = "/autotest/validate-file.json", key = "testRequest2")
-    public Object request02(HttpServletRequest request, HttpServletResponse response, @RequestBody UserVo vo) throws Exception{
+    @PostMapping("/goddesstest")
+    @ParamsValidate(value = "/autotest/validate-file.json", key = "goddess")
+    public Object goddess(@RequestBody Goddess goddess){
         Map<String, Object> map1 = new HashMap<>();
         map1.put("code", 0);
         map1.put("data", "成功");
         return map1;
     }
 
-    @PostMapping("/listRequestFalse01")
-    @ParamsValidate(file = "/autotest/validate-file.json", key = "listRequestFalse01")
-    public Object listRequestFalse01(HttpServletRequest request, HttpServletResponse response, @RequestBody UserVo vo) throws Exception{
+    @PostMapping("/goddessListFalseTest")
+    @ParamsValidate(value = "/autotest/validate-file.json", key = "goddessListFalse")
+    public Object goddessListFalseTest(@RequestBody Goddess goddessMap){
         Map<String, Object> map1 = new HashMap<>();
         map1.put("code", 0);
         map1.put("data", "成功");
         return map1;
     }
 
-    @PostMapping("/goddessTest01")
-    @ParamsValidate(file = "/autotest/validate-file.json", key = "goddessTest01")
-    public Object goddessTest01(HttpServletRequest request, HttpServletResponse response, @RequestBody UserVo vo) throws Exception{
+    @PostMapping("/dreamListtest")
+    @ParamsValidate(value = "/autotest/validate-file.json", key = "dreamList")
+    public Object dreamListtest(@RequestBody Map<String, List<Dream>> map){
         Map<String, Object> map1 = new HashMap<>();
         map1.put("code", 0);
         map1.put("data", "成功");
         return map1;
     }
 
-    @PostMapping("/goddessBackupListRequestFalseTest01")
-    @ParamsValidate(file = "/autotest/validate-file.json", key = "goddessBackupListRequestFalseTest01")
-    public Object goddessBackupListRequestFalseTest01(HttpServletRequest request, HttpServletResponse response, @RequestBody UserVo vo) throws Exception{
+    @PostMapping("/dreamListTest02")
+    @ParamsValidate(value = "/autotest/validate-file.json", key = "dreamListTest02")
+    public Object dreamListTest02(@RequestBody Map<String, List<Dream>> map){
         Map<String, Object> map1 = new HashMap<>();
         map1.put("code", 0);
         map1.put("data", "成功");
         return map1;
     }
 
-    @PostMapping("/goddessBackupListTwoRequestFalseTest02")
-    @ParamsValidate(file = "/autotest/validate-file.json", key = "goddessBackupListTwoRequestFalseTest02")
-    public Object goddessBackupListTwoRequestFalseTest02(HttpServletRequest request, HttpServletResponse response, @RequestBody UserVo vo) throws Exception{
+    @PostMapping("/dreamListTest021")
+    @ParamsValidate(value = "/autotest/validate-file.json", key = "dreamListTest021")
+    public Object dreamListTest021(@RequestBody Map<String, List<Dream>> map){
         Map<String, Object> map1 = new HashMap<>();
         map1.put("code", 0);
         map1.put("data", "成功");
         return map1;
     }
 
-    @PostMapping("/baoBaoListTest01")
-    @ParamsValidate(file = "/autotest/validate-file.json", key = "baoBaoListTest01")
-    public Object baoBaoListTest01(HttpServletRequest request, HttpServletResponse response, @RequestBody UserVo vo) throws Exception{
+    @PostMapping("/dreamListTest022")
+    @ParamsValidate(value = "/autotest/validate-file.json", key = "dreamListTest022")
+    public Object dreamListTest022(@RequestBody Map<String, List<Dream>> map){
         Map<String, Object> map1 = new HashMap<>();
         map1.put("code", 0);
         map1.put("data", "成功");
         return map1;
     }
 
+    @PostMapping("/dreamListTest03")
+    @ParamsValidate(value = "/autotest/validate-file.json", key = "dreamListTest03")
+    public Object dreamListTest03(@RequestBody Map<String, List<Dream>> map){
+        Map<String, Object> map1 = new HashMap<>();
+        map1.put("code", 0);
+        map1.put("data", "成功");
+        return map1;
+    }
+
+    @PostMapping("/baoBaoList")
+    @ParamsValidate(value = "/autotest/validate-file.json", key = "baoBaoList")
+    public Object baoBaoList(@RequestBody Map<String, List<Baobao>> map){
+        Map<String, Object> map1 = new HashMap<>();
+        map1.put("code", 0);
+        map1.put("data", "成功");
+        return map1;
+    }
+
+    @PostMapping("/baoBaoListRequest")
+    @ParamsValidate(value = "/autotest/validate-file.json", key = "baoBaoListRequest")
+    public Object baoBaoListRequest(@RequestBody Map<String, List<Baobao>> map){
+        Map<String, Object> map1 = new HashMap<>();
+        map1.put("code", 0);
+        map1.put("data", "成功");
+        return map1;
+    }
+
+    @PostMapping("/baoBaoListRequest02")
+    @ParamsValidate(value = "/autotest/validate-file.json", key = "baoBaoListRequest02")
+    public Object baoBaoListRequest02(@RequestBody Map<String, List<Baobao>> map){
+        Map<String, Object> map1 = new HashMap<>();
+        map1.put("code", 0);
+        map1.put("data", "成功");
+        return map1;
+    }
+
+    @PostMapping("/all01")
+    @ParamsValidate(value = "/autotest/validate-file.json", key = "all01")
+    public Object all01(@RequestBody UserVo userVo){
+        Map<String, Object> map1 = new HashMap<>();
+        map1.put("code", 0);
+        map1.put("data", "成功");
+        return map1;
+    }
 
 }
