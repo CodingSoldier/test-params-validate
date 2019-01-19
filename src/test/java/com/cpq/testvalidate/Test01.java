@@ -2,12 +2,12 @@ package com.cpq.testvalidate;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.github.codingsoldier.paramsvalidate.PvUtil;
 import org.junit.Test;
 
 import java.io.File;
-import java.util.Collection;
+import java.text.NumberFormat;
 import java.util.Map;
+import java.util.regex.Pattern;
 
 public class Test01 {
 
@@ -19,16 +19,16 @@ public class Test01 {
         Object obj = mapper.readValue(file, Map.class);
         Map<String, Object> result = mapper.convertValue(obj, Map.class);
         //删除空值
-        PvUtil.deleteMapEmptyValue(result);
-        boolean isEmpty = PvUtil.isDepthValueEmpty(result);
-        System.out.println(isEmpty);
+
     }
 
     @Test
     public void test2() throws Exception{
-        Object d = null;
-        System.out.println(d instanceof Collection);
-        //System.out.println(d == 0);
+        NumberFormat nf = NumberFormat.getInstance();
+        System.out.println(nf.format(3.00));
+        Pattern pattern = Pattern.compile("^(0|\\+?[1-9][0-9]*)$", Pattern.CASE_INSENSITIVE);
+        System.out.println(pattern.matcher("0.0").matches());
+
     }
 
 }

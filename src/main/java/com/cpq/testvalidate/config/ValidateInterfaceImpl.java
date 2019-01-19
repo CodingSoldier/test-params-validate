@@ -1,11 +1,13 @@
 package com.cpq.testvalidate.config;
 
 
-import com.alibaba.fastjson.JSON;
-import com.alibaba.fastjson.parser.Feature;
 import com.github.codingsoldier.paramsvalidate.PvUtil;
 import com.github.codingsoldier.paramsvalidate.ValidateInterfaceAdapter;
-import com.github.codingsoldier.paramsvalidate.bean.*;
+import com.github.codingsoldier.paramsvalidate.bean.Parser;
+import com.github.codingsoldier.paramsvalidate.bean.PvConst;
+import com.github.codingsoldier.paramsvalidate.bean.ResultValidate;
+import com.github.codingsoldier.paramsvalidate.bean.ValidateConfig;
+import com.google.gson.Gson;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
@@ -30,8 +32,8 @@ public class ValidateInterfaceImpl extends ValidateInterfaceAdapter implements  
 
     /**
      * 校验级别
-     * PvLevel.STRICT  严格模式，@ParamsValidate发生异常，校验不通过，默认
-     * PvLevel.LOOSE   宽松模式，@ParamsValidate发生异常，不校验
+     * PvConst.LEVEL_STRICT  严格模式，发生异常，校验不通过，默认
+     * PvConst.LEVEL_LOOSE   宽松模式，发生异常，不校验
      */
     //@Override
     //public String getLevel(){
@@ -46,22 +48,17 @@ public class ValidateInterfaceImpl extends ValidateInterfaceAdapter implements  
      * 为了支持fastjson，搞得好坑爹
      */
     public Parser getParser(){
-        //return new Parser(Gson.class);
-        return new Parser(JSON.class, Feature[].class);
+        return new Parser(Gson.class);
+        //return new Parser(JSON.class, Feature[].class);
     }
 
     /**
      * 参数校验未通过, 返回自定义数据给客户端的数据
      * 我覆盖此方法，仅仅是为了方便自动化测试。
-     * 此方法的代码和父类ValidateInterfaceAdapter的validateNotPass()代码几乎一样
      */
     @Override
     public Object validateNotPass(ResultValidate resultValidate) {
         List<Map<String, String>> msgList = resultValidate.getMsgList();
-        /**
-         * 父类ValidateInterfaceAdapter是new HashMap<>()
-         * 我new TreeMap<>()是为了让返回结果有序，方便自动化测试
-         */
         Map<String, String> data = new TreeMap<>();
         for (Map<String, String> elemMap:msgList){
             if (elemMap != null){
@@ -75,10 +72,18 @@ public class ValidateInterfaceImpl extends ValidateInterfaceAdapter implements  
                 String message = "";
                 message = PvUtil.isNotBlankObj(jsonMsg) ? (message+jsonMsg+"，") : message;
                 message = Boolean.TRUE.equals(requestVal) ? (message+"必填，") : message;
-                message = PvUtil.isNotBlankObj(minVal) ? (message+"最小值"+minVal+"，") : message;
-                message = PvUtil.isNotBlankObj(maxVal) ? (message+"最大值"+maxVal+"，") : message;
-                message = PvUtil.isNotBlankObj(minLen) ? (message+"最小长度"+minLen+"，") : message;
-                message = PvUtil.isNotBlankObj(maxLen) ? (message+"最大长度"+maxLen+"，") : message;
+                if (PvUtil.isNotBlankObj(minVal)){
+                    minVal = minVal.replaceAll("0+?$", "");
+                    minVal = minVal.replaceAll("[.]$", "");
+                    message = message+"最小值"+minVal+"，";
+                }
+                if (PvUtil.isNotBlankObj(maxVal)){
+                    maxVal = maxVal.replaceAll("0+?$", "");
+                    maxVal = maxVal.replaceAll("[.]$", "");
+                    message = message+"最大值"+maxVal+"，";
+                }
+                message = PvUtil.isNotBlankObj(minLen) ? (message+"最小长度"+Float.valueOf(minLen).intValue()+"，") : message;
+                message = PvUtil.isNotBlankObj(maxLen) ? (message+"最大长度"+Float.valueOf(maxLen).intValue()+"，") : message;
                 message = "".equals(message) ? "未通过校验，" : message;
                 message = message.substring(0, message.length()-1);
 
@@ -92,37 +97,29 @@ public class ValidateInterfaceImpl extends ValidateInterfaceAdapter implements  
         return r;
     }
 
-    /**
-     * 不使用缓存，可不覆盖此方法
-     * 获取redis缓存中的校验规则
-     */
+
     @Override
-    public Map<String, Object> getCache(ValidateConfig validateConfig) {
-        String key = createKey(validateConfig);
-        return redisTemplate.opsForHash().entries(key);
+    public Map<String, Object> getKeyCache(ValidateConfig validateConfig) {
+        String redisKey = createRedisKey(validateConfig);
+        return (Map<String, Object>)redisTemplate.opsForHash().get(redisKey, validateConfig.getKey());
     }
 
-    /**
-     * 不使用缓存，可不覆盖此方法
-     * 设置redis校验规则到缓存中
-     */
     @Override
-    public void setCache(ValidateConfig validateConfig, Map<String, Object> json) {
-        String key = createKey(validateConfig);
-        redisTemplate.opsForHash().putAll(key, json);
+    public void setFileCache(ValidateConfig validateConfig, Map<String, Map<String, Object>> json) {
+        String redisKey = createRedisKey(validateConfig);
+        redisTemplate.opsForHash().putAll(redisKey, json);
     }
 
 
     //创建缓存key
-    private String createKey(ValidateConfig validateConfig){
+    private String createRedisKey(ValidateConfig validateConfig){
         String basePath = PvUtil.trimBeginEndChar(basePath(), '/') + "/";
         String fileName = validateConfig.getFile().substring(0, validateConfig.getFile().lastIndexOf(".json"));
         fileName = PvUtil.trimBeginEndChar(fileName, '/');
-        String jsonKey = validateConfig.getKey();
-        jsonKey = PvUtil.isBlank(jsonKey) ? jsonKey : (":"+jsonKey);
-        String temp = basePath + fileName + jsonKey;
+        String temp = basePath + fileName;
         return temp.replaceAll("[\\/\\-]",":");
     }
+
 
     //项目启动时，删除redis缓存校验规则
     @Override
