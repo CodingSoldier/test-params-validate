@@ -1,12 +1,11 @@
 package com.cpq.testvalidate.bean;
 
 import java.math.BigDecimal;
-import java.util.Date;
 
 public class User {
     private String id;
     private String name;
-    private Date birthday;
+    private String birthday;
     private Boolean single;
     private Float salaryNum;
     private BigDecimal bigNum;
@@ -27,11 +26,11 @@ public class User {
         this.name = name;
     }
 
-    public Date getBirthday() {
+    public String getBirthday() {
         return birthday;
     }
 
-    public void setBirthday(Date birthday) {
+    public void setBirthday(String birthday) {
         this.birthday = birthday;
     }
 

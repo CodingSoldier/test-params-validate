@@ -1,0 +1,4100 @@
+{
+	"info": {
+		"_postman_id": "72b3bbb1-085b-43d7-9ff2-badadb51ecaa",
+		"name": "params-validate-auto-test-map",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "hobbyList-- \"hobbyList\":[123,456]",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "ca14c77e-9201-4b89-9b21-53705589f3d0",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "b4e1d1b1-21d5-4a41-9f5c-743c6934e5a5",
+						"exec": [
+							"var responseJSON = pm.response.json();",
+							"pm.expect(responseJSON).to.eql({\"code\":0,\"data\":\"成功\"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"hobbyList\":[123,456]\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/auto/test/hobbyList",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"auto",
+						"test",
+						"hobbyList"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "hobbyList---\"hobbyList\":[123,\"dfasdf\"]",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "ca14c77e-9201-4b89-9b21-53705589f3d0",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "b4e1d1b1-21d5-4a41-9f5c-743c6934e5a5",
+						"exec": [
+							"var responseJSON = pm.response.json();",
+							"pm.expect(responseJSON).to.eql({\"code\":101,\"data\":{\"hobbyList.elem\":\"必须是数字，必填，最小长度1，最大长度200\"}});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"hobbyList\":[123,\"dfasdf\"]\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/auto/test/hobbyList",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"auto",
+						"test",
+						"hobbyList"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "test/hobbyList--\"hobbyList\":[123,\"\"]",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "ca14c77e-9201-4b89-9b21-53705589f3d0",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "b4e1d1b1-21d5-4a41-9f5c-743c6934e5a5",
+						"exec": [
+							"var responseJSON = pm.response.json();",
+							"pm.expect(responseJSON).to.eql({\"code\":101,\"data\":{\"hobbyList.elem\":\"必须是数字，必填，最小长度1，最大长度200\"}});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"hobbyList\":[123,\"\"]\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/auto/test/hobbyList",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"auto",
+						"test",
+						"hobbyList"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "hobbyList-- \"hobbyList\":[123,222,333,444]",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "ca14c77e-9201-4b89-9b21-53705589f3d0",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "b4e1d1b1-21d5-4a41-9f5c-743c6934e5a5",
+						"exec": [
+							"var responseJSON = pm.response.json();",
+							"pm.expect(responseJSON).to.eql({\"code\":101,\"data\":{\"hobbyList\":\"最大长度3\"}});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"hobbyList\":[123,222,333,444]\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/auto/test/hobbyList",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"auto",
+						"test",
+						"hobbyList"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "hobbyList-- \"hobbyList\":[]",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "5a14e7f1-9f49-4426-aff7-56555dbb6613",
+						"exec": [
+							"var responseJSON = pm.response.json();",
+							"pm.expect(responseJSON).to.eql({\"code\":101,\"data\":{\"hobbyList\":\"必须是数字，必填，最小长度1，最大长度200\"}});"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "16c13ebd-a93f-4383-b617-5db3739f60d3",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"hobbyList\":[]\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/auto/test/hobbyList",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"auto",
+						"test",
+						"hobbyList"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "hobbyList--\"hobbyList\":null",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "5a14e7f1-9f49-4426-aff7-56555dbb6613",
+						"exec": [
+							"var responseJSON = pm.response.json();",
+							"pm.expect(responseJSON).to.eql({\"code\":0,\"data\":\"成功\"});"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "c62e1d41-7d78-452a-9d3e-43e380db9174",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"hobbyList\":null\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/auto/test/hobbyList",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"auto",
+						"test",
+						"hobbyList"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "hobbyListTest01---[]",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "5a14e7f1-9f49-4426-aff7-56555dbb6613",
+						"exec": [
+							"var responseJSON = pm.response.json();",
+							"pm.expect(responseJSON).to.eql({\"code\":101,\"data\":{\"hobbyList\":\"hobbyList元素必须是数字，必填，最小长度1，最大长度200\"}});"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "c62e1d41-7d78-452a-9d3e-43e380db9174",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"hobbyList\":[]\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/auto/test/hobbyListTest01",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"auto",
+						"test",
+						"hobbyListTest01"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "hobbyListTest01--\"\"",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "5a14e7f1-9f49-4426-aff7-56555dbb6613",
+						"exec": [
+							"var responseJSON = pm.response.json();",
+							"pm.expect(responseJSON).to.eql({\"code\":101,\"data\":{\"elem\":\"hobbyList元素必须是数字，必填，最小长度1，最大长度200\"}});"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "c62e1d41-7d78-452a-9d3e-43e380db9174",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"hobbyList\":\"\"\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/auto/test/hobbyListTest01",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"auto",
+						"test",
+						"hobbyListTest01"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "hobbyListTest01---{ }",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "5a14e7f1-9f49-4426-aff7-56555dbb6613",
+						"exec": [
+							"var responseJSON = pm.response.json();",
+							"pm.expect(responseJSON).to.eql({\"code\":101,\"data\":{\"elem\":\"hobbyList元素必须是数字，必填，最小长度1，最大长度200\"}});"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "c62e1d41-7d78-452a-9d3e-43e380db9174",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/auto/test/hobbyListTest01",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"auto",
+						"test",
+						"hobbyListTest01"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "hobbyListTest01--[1]",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "5a14e7f1-9f49-4426-aff7-56555dbb6613",
+						"exec": [
+							"var responseJSON = pm.response.json();",
+							"pm.expect(responseJSON).to.eql({\"code\":0,\"data\":\"成功\"});"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "c62e1d41-7d78-452a-9d3e-43e380db9174",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"hobbyList\":[1]\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/auto/test/hobbyListTest01",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"auto",
+						"test",
+						"hobbyListTest01"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "hobbyListTest01---[\"a1\"]",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "5a14e7f1-9f49-4426-aff7-56555dbb6613",
+						"exec": [
+							"var responseJSON = pm.response.json();",
+							"pm.expect(responseJSON).to.eql({\"code\":101,\"data\":{\"hobbyList.elem\":\"hobbyList元素必须是数字，必填，最小长度1，最大长度200\"}});"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "c62e1d41-7d78-452a-9d3e-43e380db9174",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"hobbyList\":[\"a1\"]\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/auto/test/hobbyListTest01",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"auto",
+						"test",
+						"hobbyListTest01"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "schoolClassList--3false",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "ca14c77e-9201-4b89-9b21-53705589f3d0",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "b4e1d1b1-21d5-4a41-9f5c-743c6934e5a5",
+						"exec": [
+							"var responseJSON = pm.response.json();",
+							"pm.expect(responseJSON).to.eql({\"code\":101,\"data\":{\"schoolClassList\":\"长度不超过2，最大长度2\",\"schoolClassList.elem\":\"最大长度3\",\"schoolClassList.elem.elem\":\"元素必须是字母数字中文，必填，最大长度40\"}});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"schoolClassList\":[\r\n\t\t[333,444],\r\n\t\t[\"sd\",\"sdf\"],\r\n\t\t[\"讲课费-*96/11费\",\"方法\",\"讲课费11费\",\"讲课费11费\"]\r\n   \t]\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/auto/test/schoolClassList",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"auto",
+						"test",
+						"schoolClassList"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "schoolClassList--true",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "ca14c77e-9201-4b89-9b21-53705589f3d0",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "b4e1d1b1-21d5-4a41-9f5c-743c6934e5a5",
+						"exec": [
+							"var responseJSON = pm.response.json();",
+							"pm.expect(responseJSON).to.eql({\"code\":0,\"data\":\"成功\"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"schoolClassList\":[\r\n\t\t[\"sd\",\"sdf\"],\r\n\t\t[\"讲课费费\",\"方法\"]\r\n   \t]\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/auto/test/schoolClassList",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"auto",
+						"test",
+						"schoolClassList"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "schoolClassList--   \"schoolClassList\":[ \t\t[], \t\t[]    \t]",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "ca14c77e-9201-4b89-9b21-53705589f3d0",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "b4e1d1b1-21d5-4a41-9f5c-743c6934e5a5",
+						"exec": [
+							"var responseJSON = pm.response.json();",
+							"pm.expect(responseJSON).to.eql({\"code\":101,\"data\":{\"schoolClassList.elem\":\"元素必须是字母数字中文，必填，最大长度40\"}});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"schoolClassList\":[\r\n\t\t[],\r\n\t\t[]\r\n   \t]\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/auto/test/schoolClassList",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"auto",
+						"test",
+						"schoolClassList"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "schoolClassList--   \"schoolClassList\":[ \t\t[]    \t]",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "ca14c77e-9201-4b89-9b21-53705589f3d0",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "b4e1d1b1-21d5-4a41-9f5c-743c6934e5a5",
+						"exec": [
+							"var responseJSON = pm.response.json();",
+							"pm.expect(responseJSON).to.eql({\"code\":101,\"data\":{\"schoolClassList.elem\":\"元素必须是字母数字中文，必填，最大长度40\"}});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"schoolClassList\":[\r\n\t\t[]\r\n   \t]\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/auto/test/schoolClassList",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"auto",
+						"test",
+						"schoolClassList"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "schoolClassList---[    \t]",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "ca14c77e-9201-4b89-9b21-53705589f3d0",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "b4e1d1b1-21d5-4a41-9f5c-743c6934e5a5",
+						"exec": [
+							"var responseJSON = pm.response.json();",
+							"pm.expect(responseJSON).to.eql({\"code\":101,\"data\":{\"elem\":\"元素必须是字母数字中文，必填，最大长度40\"}});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"schoolClassList\":[\r\n   \t]\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/auto/test/schoolClassList",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"auto",
+						"test",
+						"schoolClassList"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "schoolClassList--{ }",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "ca14c77e-9201-4b89-9b21-53705589f3d0",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "b4e1d1b1-21d5-4a41-9f5c-743c6934e5a5",
+						"exec": [
+							"var responseJSON = pm.response.json();",
+							"pm.expect(responseJSON).to.eql({\"code\":101,\"data\":{\"elem\":\"元素必须是字母数字中文，必填，最大长度40\"}});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/auto/test/schoolClassList",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"auto",
+						"test",
+						"schoolClassList"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "schoolClassList---\"schoolClassList\":null",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "ca14c77e-9201-4b89-9b21-53705589f3d0",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "b4e1d1b1-21d5-4a41-9f5c-743c6934e5a5",
+						"exec": [
+							"var responseJSON = pm.response.json();",
+							"pm.expect(responseJSON).to.eql({\"code\":101,\"data\":{\"elem\":\"元素必须是字母数字中文，必填，最大长度40\"}});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"schoolClassList\":null\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/auto/test/schoolClassList",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"auto",
+						"test",
+						"schoolClassList"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "schoolClassListTest01--true",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "ca14c77e-9201-4b89-9b21-53705589f3d0",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "b4e1d1b1-21d5-4a41-9f5c-743c6934e5a5",
+						"exec": [
+							"var responseJSON = pm.response.json();",
+							"pm.expect(responseJSON).to.eql({\"code\":0,\"data\":\"成功\"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"schoolClassList\":[\r\n\t\t[333,444],\r\n\t\t[\"sd\",\"sdf\"]\r\n   \t]\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/auto/test/schoolClassListTest01",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"auto",
+						"test",
+						"schoolClassListTest01"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "schoolClassListTest01--   \"schoolClassList\":[    \t]",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "ca14c77e-9201-4b89-9b21-53705589f3d0",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "b4e1d1b1-21d5-4a41-9f5c-743c6934e5a5",
+						"exec": [
+							"var responseJSON = pm.response.json();",
+							"pm.expect(responseJSON).to.eql({\"code\":0,\"data\":\"成功\"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"schoolClassList\":[\r\n   \t]\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/auto/test/schoolClassListTest01",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"auto",
+						"test",
+						"schoolClassListTest01"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "schoolClassListTest01--   \"schoolClassList\":[ \t\t[]    \t]",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "ca14c77e-9201-4b89-9b21-53705589f3d0",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "b4e1d1b1-21d5-4a41-9f5c-743c6934e5a5",
+						"exec": [
+							"var responseJSON = pm.response.json();",
+							"pm.expect(responseJSON).to.eql({\"code\":101,\"data\":{\"schoolClassList.elem\":\"字母数字中文，必填，最大长度40\"}});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"schoolClassList\":[\r\n\t\t[]\r\n   \t]\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/auto/test/schoolClassListTest01",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"auto",
+						"test",
+						"schoolClassListTest01"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "schoolClassListTest01--\"schoolClassList\":\"\"",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "ca14c77e-9201-4b89-9b21-53705589f3d0",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "b4e1d1b1-21d5-4a41-9f5c-743c6934e5a5",
+						"exec": [
+							"var responseJSON = pm.response.json();",
+							"pm.expect(responseJSON).to.eql({\"code\":0,\"data\":\"成功\"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"schoolClassList\":\"\"\r\n   \t\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/auto/test/schoolClassListTest01",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"auto",
+						"test",
+						"schoolClassListTest01"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "diningHallList",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "ca14c77e-9201-4b89-9b21-53705589f3d0",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "b4e1d1b1-21d5-4a41-9f5c-743c6934e5a5",
+						"exec": [
+							"var responseJSON = pm.response.json();",
+							"pm.expect(responseJSON).to.eql({\"code\":0,\"data\":\"成功\"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"diningHallList\":[\n        [{\n            \"cateName\":\"cateName01\",\n            \"money\":123\n        },{\n            \"cateName\":\"cateName02\",\n            \"money\":145\n        }],        \n        [{\n            \"cateName\":\"s00\",\n            \"money\":121\n        },{\n            \"cateName\":\"cateName02\",\n            \"money\":145\n        }]\n    ]\t\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/auto/test/diningHallList",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"auto",
+						"test",
+						"diningHallList"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "diningHallList--null",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "ca14c77e-9201-4b89-9b21-53705589f3d0",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "b4e1d1b1-21d5-4a41-9f5c-743c6934e5a5",
+						"exec": [
+							"var responseJSON = pm.response.json();",
+							"pm.expect(responseJSON).to.eql({\"code\":101,\"data\":{\"cateName\":\"字母数字中文，必填，最大长度40\",\"money\":\"数字，必填，最大长度4\"}});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"diningHallList\":null\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/auto/test/diningHallList",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"auto",
+						"test",
+						"diningHallList"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "diningHallList--[]",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "ca14c77e-9201-4b89-9b21-53705589f3d0",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "b4e1d1b1-21d5-4a41-9f5c-743c6934e5a5",
+						"exec": [
+							"var responseJSON = pm.response.json();",
+							"pm.expect(responseJSON).to.eql({\"code\":101,\"data\":{\"cateName\":\"字母数字中文，必填，最大长度40\",\"money\":\"数字，必填，最大长度4\"}});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"diningHallList\":[]\t\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/auto/test/diningHallList",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"auto",
+						"test",
+						"diningHallList"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "diningHallList--[[]]",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "ca14c77e-9201-4b89-9b21-53705589f3d0",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "b4e1d1b1-21d5-4a41-9f5c-743c6934e5a5",
+						"exec": [
+							"var responseJSON = pm.response.json();",
+							"pm.expect(responseJSON).to.eql({\"code\":101,\"data\":{\"cateName\":\"字母数字中文，必填，最大长度40\",\"money\":\"数字，必填，最大长度4\"}});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"diningHallList\":[[]]\t\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/auto/test/diningHallList",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"auto",
+						"test",
+						"diningHallList"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "diningHallList--[{}]",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "ca14c77e-9201-4b89-9b21-53705589f3d0",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "b4e1d1b1-21d5-4a41-9f5c-743c6934e5a5",
+						"exec": [
+							"var responseJSON = pm.response.json();",
+							"pm.expect(responseJSON).to.eql({\"code\":101,\"data\":{\"cateName\":\"字母数字中文，必填，最大长度40\",\"money\":\"数字，必填，最大长度4\"}});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"diningHallList\":[\n        [{\n            \"cateName\":\"cateName01\",\n            \"money\":123\n        },{\n            \"cateName\":\"cateName02\",\n            \"money\":145\n        }],        \n        [{}]\n    ]\t\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/auto/test/diningHallList",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"auto",
+						"test",
+						"diningHallList"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "diningHallListRequestFalse--null",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "ca14c77e-9201-4b89-9b21-53705589f3d0",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "b4e1d1b1-21d5-4a41-9f5c-743c6934e5a5",
+						"exec": [
+							"var responseJSON = pm.response.json();",
+							"pm.expect(responseJSON).to.eql({\"code\":0,\"data\":\"成功\"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"diningHallList\":null\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/auto/test/diningHallListRequestFalse",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"auto",
+						"test",
+						"diningHallListRequestFalse"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "diningHallListRequestFalse--[]",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "ca14c77e-9201-4b89-9b21-53705589f3d0",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "b4e1d1b1-21d5-4a41-9f5c-743c6934e5a5",
+						"exec": [
+							"var responseJSON = pm.response.json();",
+							"pm.expect(responseJSON).to.eql({\"code\":0,\"data\":\"成功\"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"diningHallList\":[]\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/auto/test/diningHallListRequestFalse",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"auto",
+						"test",
+						"diningHallListRequestFalse"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "diningHallListRequestFalse--[[]]",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "ca14c77e-9201-4b89-9b21-53705589f3d0",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "b4e1d1b1-21d5-4a41-9f5c-743c6934e5a5",
+						"exec": [
+							"var responseJSON = pm.response.json();",
+							"pm.expect(responseJSON).to.eql({\"code\":0,\"data\":\"成功\"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"diningHallList\":[[]]\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/auto/test/diningHallListRequestFalse",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"auto",
+						"test",
+						"diningHallListRequestFalse"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "diningHallListRequestFalse--[[{}]]",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "ca14c77e-9201-4b89-9b21-53705589f3d0",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "b4e1d1b1-21d5-4a41-9f5c-743c6934e5a5",
+						"exec": [
+							"var responseJSON = pm.response.json();",
+							"pm.expect(responseJSON).to.eql({\"code\":0,\"data\":\"成功\"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"diningHallList\":[[{}]]\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/auto/test/diningHallListRequestFalse",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"auto",
+						"test",
+						"diningHallListRequestFalse"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "diningHallListRequestFalse--{     \"diningHallList\":[[{     \t\"cateName\":\"\",     \t\"money\":\"\"     }]] }",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "ca14c77e-9201-4b89-9b21-53705589f3d0",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "b4e1d1b1-21d5-4a41-9f5c-743c6934e5a5",
+						"exec": [
+							"var responseJSON = pm.response.json();",
+							"pm.expect(responseJSON).to.eql({\"code\":0,\"data\":\"成功\"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"diningHallList\":[[{\n    \t\"cateName\":\"\",\n    \t\"money\":\"\"\n    }]]\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/auto/test/diningHallListRequestFalse",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"auto",
+						"test",
+						"diningHallListRequestFalse"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "diningHallListRequestFalse--\"money\":\"kk\"",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "ca14c77e-9201-4b89-9b21-53705589f3d0",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "b4e1d1b1-21d5-4a41-9f5c-743c6934e5a5",
+						"exec": [
+							"var responseJSON = pm.response.json();",
+							"pm.expect(responseJSON).to.eql({\"code\":101,\"data\":{\"money\":\"数字，最大值40\"}});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"diningHallList\":[[{\n    \t\"cateName\":\"\",\n    \t\"money\":\"kk\"\n    }]]\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/auto/test/diningHallListRequestFalse",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"auto",
+						"test",
+						"diningHallListRequestFalse"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "family--pase",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "ca14c77e-9201-4b89-9b21-53705589f3d0",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "b4e1d1b1-21d5-4a41-9f5c-743c6934e5a5",
+						"exec": [
+							"var responseJSON = pm.response.json();",
+							"pm.expect(responseJSON).to.eql({\"code\":0,\"data\":\"成功\"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"num\": 3,\r\n    \"mom\":{\r\n        \"momName\":\"mom名字\",\r\n        \"kindness\":\"温柔美丽，善良贤惠\"\r\n    },\r\n    \"house\": {\r\n        \"area\": 180.180,\r\n        \"houseName\": \"豪宅\",\r\n        \"window\":{\r\n            \"windowHeight\":80,\r\n            \"windowWidth\":80\r\n        }\r\n    }\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/auto/test/family",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"auto",
+						"test",
+						"family"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "family--mom--null",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "ca14c77e-9201-4b89-9b21-53705589f3d0",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "b4e1d1b1-21d5-4a41-9f5c-743c6934e5a5",
+						"exec": [
+							"var responseJSON = pm.response.json();",
+							"pm.expect(responseJSON).to.eql({\"code\":101,\"data\":{\"momName\":\"momName必须是字母、数字、中文，必填，最大长度20\"}});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"num\": 3\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/auto/test/family",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"auto",
+						"test",
+						"family"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "family--{     \"num\": 3,     \"mom\":{     } }",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "bf8ef1eb-8994-4422-b3c8-d4707ce13123",
+						"exec": [
+							"var responseJSON = pm.response.json();",
+							"pm.expect(responseJSON).to.eql({\"code\":101,\"data\":{\"momName\":\"momName必须是字母、数字、中文，必填，最大长度20\"}});"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "c24c8492-1bf8-4535-994c-afeac2fb430e",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"num\": 3,\r\n    \"mom\":{\r\n    }\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/auto/test/family",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"auto",
+						"test",
+						"family"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "family--\"house\": {     }",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "ca14c77e-9201-4b89-9b21-53705589f3d0",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "b4e1d1b1-21d5-4a41-9f5c-743c6934e5a5",
+						"exec": [
+							"var responseJSON = pm.response.json();",
+							"pm.expect(responseJSON).to.eql({\"code\":101,\"data\":{\"houseName\":\"houseName必须是字母、数字、中文，必填，最大长度10\",\"windowHeight\":\"windowHeight必须是数字，必填，最小值10，最大值1000\",\"windowWidth\":\"windowWidth必须是数字，必填，最小值1，最大值1000\"}});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"num\": 3,\r\n    \"mom\":{\r\n        \"momName\":\"mom名字\",\r\n        \"kindness\":\"温柔美丽，善良贤惠\"\r\n    },\r\n    \"house\": {\r\n    }\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/auto/test/family",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"auto",
+						"test",
+						"family"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "family--\"kindness\":\"温柔美丽，善良贤惠1111111111111111111111111111\"",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "ca14c77e-9201-4b89-9b21-53705589f3d0",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "b4e1d1b1-21d5-4a41-9f5c-743c6934e5a5",
+						"exec": [
+							"var responseJSON = pm.response.json();",
+							"pm.expect(responseJSON).to.eql({\"code\":101,\"data\":{\"kindness\":\"最大长度10\"}});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"num\": 3,\r\n    \"mom\":{\r\n        \"momName\":\"mom名字\",\r\n        \"kindness\":\"温柔美丽，善良贤惠1111111111111111111111111111\"\r\n    },\r\n    \"house\": {\r\n        \"area\": 180.180,\r\n        \"houseName\": \"豪宅\",\r\n        \"window\":{\r\n            \"windowHeight\":80,\r\n            \"windowWidth\":80\r\n        }\r\n    }\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/auto/test/family",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"auto",
+						"test",
+						"family"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "goddesstest---通过",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "ca14c77e-9201-4b89-9b21-53705589f3d0",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "b4e1d1b1-21d5-4a41-9f5c-743c6934e5a5",
+						"exec": [
+							"var responseJSON = pm.response.json();\r",
+							"pm.expect(responseJSON).to.eql({\"code\":0,\"data\":\"成功\"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"marry\": false,\r\n    \"goddessName\": \"女神名字\",\r\n    \"maleGodList\":[{\r\n        \"height\": 180,\r\n        \"rich\": true,\r\n        \"handsome\": true,\r\n        \"result\":\"sfad1sssssss2323\",\r\n        \"guy\":{\r\n            \"guyName\":\"girlNsdfsdame\",\r\n            \"age\":18\r\n        }\r\n    }]\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/auto/test/goddesstest",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"auto",
+						"test",
+						"goddesstest"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "goddesstest--length",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "ca14c77e-9201-4b89-9b21-53705589f3d0",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "b4e1d1b1-21d5-4a41-9f5c-743c6934e5a5",
+						"exec": [
+							"var responseJSON = pm.response.json();\r",
+							"pm.expect(responseJSON).to.eql({\"code\":101,\"data\":{\"goddessName\":\"goddessName必须是字母、数字、中文，必填，最大长度20\",\"height\":\"windowHeight必须是数字，必填，最小值1，最大值1000\",\"maleGodList\":\"maleGodList最大长度是2，最大长度2\",\"result\":\"result必须是字母、数字、中文，必填，最小长度10，最大长度20\"}});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"marry\": false,\r\n    \"goddessName\": \"女神名字11111111111111111111111111111\",\r\n    \"maleGodList\":[{\r\n        \"height\": 0,\r\n        \"rich\": true,\r\n        \"handsome\": true,\r\n        \"result\":\"323\",\r\n        \"guy\":{\r\n            \"guyName\":\"girlNsdfsdame\",\r\n            \"age\":18\r\n        }\r\n    },{\r\n        \"height\": 180,\r\n        \"rich\": true,\r\n        \"handsome\": true,\r\n        \"result\":\"sfad1sssssss2323\",\r\n        \"guy\":{\r\n            \"guyName\":\"girlNsdfsdame\",\r\n            \"age\":18\r\n        }\r\n    },{\r\n        \"height\": 180,\r\n        \"rich\": true,\r\n        \"handsome\": true,\r\n        \"result\":\"sfad1sssssss2323\",\r\n        \"guy\":{\r\n            \"guyName\":\"girlNsdfsdame\",\r\n            \"age\":18\r\n        }\r\n    }]\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/auto/test/goddesstest",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"auto",
+						"test",
+						"goddesstest"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "goddesstest--[]",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "ca14c77e-9201-4b89-9b21-53705589f3d0",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "b4e1d1b1-21d5-4a41-9f5c-743c6934e5a5",
+						"exec": [
+							"var responseJSON = pm.response.json();\r",
+							"pm.expect(responseJSON).to.eql({\"code\":101,\"data\":{\"goddessName\":\"goddessName必须是字母、数字、中文，必填，最大长度20\",\"guyName\":\"guyName[a-zA-Z0-9\\\\_]+，必填，最大长度20\",\"height\":\"windowHeight必须是数字，必填，最小值1，最大值1000\",\"result\":\"result必须是字母、数字、中文，必填，最小长度10，最大长度20\"}});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"goddessName\": \"\",\r\n    \"maleGodList\":[]\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/auto/test/goddesstest",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"auto",
+						"test",
+						"goddesstest"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "goddesstest--maryy",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "ca14c77e-9201-4b89-9b21-53705589f3d0",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "b4e1d1b1-21d5-4a41-9f5c-743c6934e5a5",
+						"exec": [
+							"var responseJSON = pm.response.json();\r",
+							"pm.expect(responseJSON).to.eql({\"code\":101,\"data\":{\"goddessName\":\"goddessName必须是字母、数字、中文，必填，最大长度20\"}});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"marry\": \"\",\r\n    \"maleGodList\":[{\r\n        \"height\": 180,\r\n        \"result\":\"sfad1sssssss2323\",\r\n        \"guy\":{\r\n            \"guyName\":\"girlNsdfsdame\"\r\n        }\r\n    }]\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/auto/test/goddesstest",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"auto",
+						"test",
+						"goddesstest"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "goddessListFalseTest--通过",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "ca14c77e-9201-4b89-9b21-53705589f3d0",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "b4e1d1b1-21d5-4a41-9f5c-743c6934e5a5",
+						"exec": [
+							"var responseJSON = pm.response.json();\r",
+							"pm.expect(responseJSON).to.eql({\"code\":0,\"data\":\"成功\"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"marry\": false,\r\n    \"goddessName\": \"女神名字\",\r\n    \"maleGodList\":[{\r\n        \"height\": 180,\r\n        \"rich\": true,\r\n        \"handsome\": true,\r\n        \"result\":\"sfad1sssssss2323\",\r\n        \"guy\":{\r\n            \"guyName\":\"girlNsdfsdame\",\r\n            \"age\":18\r\n        }\r\n    }]\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/auto/test/goddessListFalseTest",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"auto",
+						"test",
+						"goddessListFalseTest"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "goddessListFalseTest---{  }",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "ca14c77e-9201-4b89-9b21-53705589f3d0",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "b4e1d1b1-21d5-4a41-9f5c-743c6934e5a5",
+						"exec": [
+							"var responseJSON = pm.response.json();\r",
+							"pm.expect(responseJSON).to.eql({\"code\":0,\"data\":\"成功\"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/auto/test/goddessListFalseTest",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"auto",
+						"test",
+						"goddessListFalseTest"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "goddessListFalseTest--多个错",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "ca14c77e-9201-4b89-9b21-53705589f3d0",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "b4e1d1b1-21d5-4a41-9f5c-743c6934e5a5",
+						"exec": [
+							"var responseJSON = pm.response.json();\r",
+							"pm.expect(responseJSON).to.eql({\"code\":101,\"data\":{\"age\":\"age必须是数字，最小值1，最大值100\",\"goddessName\":\"goddessName必须是字母、数字、中文，最大长度20\",\"guyName\":\"guyName[a-zA-Z0-9\\\\_]+，最大长度20\",\"height\":\"windowHeight必须是数字，最小值1，最大值1000\",\"marry\":\"未通过校验\",\"result\":\"result必须是字母、数字、中文，最小长度10，最大长度20\"}});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"marry\": 123,\r\n    \"goddessName\": \"女神+名字\",\r\n    \"maleGodList\":[{\r\n        \"height\": 0,\r\n        \"result\":\"222\",\r\n        \"guy\":{\r\n            \"guyName\":\"girlN总额sdfsdame\",\r\n            \"age\":-18\r\n        }\r\n    }]\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/auto/test/goddessListFalseTest",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"auto",
+						"test",
+						"goddessListFalseTest"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "goddessListFalseTest---{\"code\":0,\"data\":\"成功\"}",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "ca14c77e-9201-4b89-9b21-53705589f3d0",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "b4e1d1b1-21d5-4a41-9f5c-743c6934e5a5",
+						"exec": [
+							"var responseJSON = pm.response.json();\r",
+							"pm.expect(responseJSON).to.eql({\"code\":0,\"data\":\"成功\"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"marry\": false,\r\n    \"goddessName\": \"女神名字\"\r\n\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/auto/test/goddessListFalseTest",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"auto",
+						"test",
+						"goddessListFalseTest"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "goddessListFalseTest--\"maleGodList\":[]",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "ca14c77e-9201-4b89-9b21-53705589f3d0",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "b4e1d1b1-21d5-4a41-9f5c-743c6934e5a5",
+						"exec": [
+							"var responseJSON = pm.response.json();\r",
+							"pm.expect(responseJSON).to.eql({\"code\":0,\"data\":\"成功\"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"marry\": false,\r\n    \"goddessName\": \"女神名字\",\r\n    \"maleGodList\":[]\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/auto/test/goddessListFalseTest",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"auto",
+						"test",
+						"goddessListFalseTest"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "goddessListFalseTest--    \"maleGodList\":[{      }]",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "ca14c77e-9201-4b89-9b21-53705589f3d0",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "b4e1d1b1-21d5-4a41-9f5c-743c6934e5a5",
+						"exec": [
+							"var responseJSON = pm.response.json();\r",
+							"pm.expect(responseJSON).to.eql({\"code\":0,\"data\":\"成功\"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"marry\": false,\r\n    \"goddessName\": \"女神名字\",\r\n    \"maleGodList\":[{\r\n\r\n    }]\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/auto/test/goddessListFalseTest",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"auto",
+						"test",
+						"goddessListFalseTest"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "goddessListFalseTest--\"maleGodList\":[{         \"guy\":{         }     }]",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "ca14c77e-9201-4b89-9b21-53705589f3d0",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "b4e1d1b1-21d5-4a41-9f5c-743c6934e5a5",
+						"exec": [
+							"var responseJSON = pm.response.json();\r",
+							"pm.expect(responseJSON).to.eql({\"code\":0,\"data\":\"成功\"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"marry\": false,\r\n    \"goddessName\": \"女神名字\",\r\n    \"maleGodList\":[{\r\n        \"guy\":{\r\n        }\r\n    }]\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/auto/test/goddessListFalseTest",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"auto",
+						"test",
+						"goddessListFalseTest"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "dreamListtest",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "ca14c77e-9201-4b89-9b21-53705589f3d0",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "b4e1d1b1-21d5-4a41-9f5c-743c6934e5a5",
+						"exec": [
+							"var responseJSON = pm.response.json();",
+							"pm.expect(responseJSON).to.eql({\"code\":0,\"data\":\"成功\"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"dreamList\": [\r\n        {\r\n            \"txt\": \"出任总经理，当上CEO，赢取白富美\",\r\n            \"exe\": \"改变世界\",\r\n            \"time\": 1538804023486,\r\n            \"money\": \"1\",\r\n            \"achieveList\":[\"实现了第一个\", \"实现了第二个\"]\r\n        },\r\n        {\r\n            \"txt\": \"出任总经理，当上CEO，赢取白富美\",\r\n            \"exe\": \"改变世界\",\r\n            \"time\": 1538804023486,\r\n            \"money\": \"10\",\r\n            \"achieveList\":[\"实现了第一个\", \"实现了第二个\"]\r\n        }\r\n    ]\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/auto/test/dreamListtest",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"auto",
+						"test",
+						"dreamListtest"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "dreamListtest---- \"dreamList\": [     ]",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "ca14c77e-9201-4b89-9b21-53705589f3d0",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "b4e1d1b1-21d5-4a41-9f5c-743c6934e5a5",
+						"exec": [
+							"var responseJSON = pm.response.json();",
+							"pm.expect(responseJSON).to.eql({\"code\":101,\"data\":{\"dreamList\":\"最小长度1，最大长度4\"}});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"dreamList\": [\r\n    ]\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/auto/test/dreamListtest",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"auto",
+						"test",
+						"dreamListtest"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "dreamListtest----\"dreamList\": \"\"",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "ca14c77e-9201-4b89-9b21-53705589f3d0",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "b4e1d1b1-21d5-4a41-9f5c-743c6934e5a5",
+						"exec": [
+							"var responseJSON = pm.response.json();",
+							"pm.expect(responseJSON).to.eql({\"code\":0,\"data\":\"成功\"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"dreamList\": \"\"\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/auto/test/dreamListtest",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"auto",
+						"test",
+						"dreamListtest"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "dreamListtest---achieveList",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "ca14c77e-9201-4b89-9b21-53705589f3d0",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "b4e1d1b1-21d5-4a41-9f5c-743c6934e5a5",
+						"exec": [
+							"var responseJSON = pm.response.json();",
+							"pm.expect(responseJSON).to.eql({\"code\":101,\"data\":{\"achieveList\":\"最小长度2，最大长度3\"}});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"dreamList\": [\r\n        {\r\n            \"txt\": \"出任总经理，当上CEO，赢取白富美\",\r\n            \"exe\": \"改变世界\",\r\n            \"time\": 1538804023486,\r\n            \"money\": \"1\",\r\n            \"achieveList\":[\"实现了第一个\", \"实现了第二个\"]\r\n        },\r\n        {\r\n            \"txt\": \"出任总经理，当上CEO，赢取白富美\",\r\n            \"exe\": \"改变世界\",\r\n            \"time\": 1538804023486,\r\n            \"money\": \"10\",\r\n            \"achieveList\":[\"实现了第一个\"]\r\n        }\r\n    ]\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/auto/test/dreamListtest",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"auto",
+						"test",
+						"dreamListtest"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "dreamListtest---多个错误",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "ca14c77e-9201-4b89-9b21-53705589f3d0",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "b4e1d1b1-21d5-4a41-9f5c-743c6934e5a5",
+						"exec": [
+							"var responseJSON = pm.response.json();",
+							"pm.expect(responseJSON).to.eql({\"code\":101,\"data\":{\"achieveList.elem\":\"achieveList元素必须是字母、数字、中文，最小长度2，最大长度20\",\"dreamList\":\"最小长度1，最大长度4\",\"exe\":\"最大长度10\",\"money\":\"money必须是数字，最小值1，最大值10\",\"txt\":\"最大长度20\"}});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"dreamList\": [\r\n        {\r\n            \"txt\": \"出任总经理，当上CEO，赢取白富美1111111111111111111111\",\r\n            \"exe\": \"改变世2222222222222222\",\r\n            \"time\": 1538804023486,\r\n            \"money\": \"0\",\r\n            \"achieveList\":[\"实现了第一个\", \"实现了第22222222222222222222222222二个\"]\r\n        },\r\n        {\r\n            \"txt\": \"出任总经理，当上CEO，赢取白富美\",\r\n            \"exe\": \"改变世界\",\r\n            \"time\": 1538804023486,\r\n            \"money\": \"10\",\r\n            \"achieveList\":[\"实现了第一个\", \"实现了第二个\"]\r\n        },\r\n        {\r\n            \"txt\": \"出任总经理，当上CEO，赢取白富美\",\r\n            \"exe\": \"改变世界\",\r\n            \"time\": 1538804023486,\r\n            \"money\": \"10\",\r\n            \"achieveList\":[\"实现了第一个\", \"实现了第二个\"]\r\n        },\r\n        {\r\n            \"txt\": \"出任总经理，当上CEO，赢取白富美\",\r\n            \"exe\": \"改变世界\",\r\n            \"time\": 1538804023486,\r\n            \"money\": \"10\",\r\n            \"achieveList\":[\"实现了第一个\", \"实现了第二个\"]\r\n        },\r\n        {\r\n            \"txt\": \"出任总经理，当上CEO，赢取白富美\",\r\n            \"exe\": \"改变世界\",\r\n            \"time\": 1538804023486,\r\n            \"money\": \"10\",\r\n            \"achieveList\":[\"实现了第一个\", \"实现了第二个\"]\r\n        }\r\n    ]\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/auto/test/dreamListtest",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"auto",
+						"test",
+						"dreamListtest"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "dreamListTest02--{  }",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "ca14c77e-9201-4b89-9b21-53705589f3d0",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "b4e1d1b1-21d5-4a41-9f5c-743c6934e5a5",
+						"exec": [
+							"var responseJSON = pm.response.json();",
+							"pm.expect(responseJSON).to.eql({\"code\":0,\"data\":\"成功\"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/auto/test/dreamListTest02",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"auto",
+						"test",
+						"dreamListTest02"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "dreamListTest02--\"dreamListTest02\":\"\"",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "ca14c77e-9201-4b89-9b21-53705589f3d0",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "b4e1d1b1-21d5-4a41-9f5c-743c6934e5a5",
+						"exec": [
+							"var responseJSON = pm.response.json();",
+							"pm.expect(responseJSON).to.eql({\"code\":0,\"data\":\"成功\"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"dreamListTest02\":\"\"\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/auto/test/dreamListTest02",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"auto",
+						"test",
+						"dreamListTest02"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "dreamListTest02--[     ]",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "ca14c77e-9201-4b89-9b21-53705589f3d0",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "b4e1d1b1-21d5-4a41-9f5c-743c6934e5a5",
+						"exec": [
+							"var responseJSON = pm.response.json();",
+							"pm.expect(responseJSON).to.eql({\"code\":101,\"data\":{\"dreamListTest02\":\"最小长度1，最大长度4\",\"money\":\"money必须是数字，必填，最小值1，最大值10\"}});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"dreamListTest02\": [\r\n    ]\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/auto/test/dreamListTest02",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"auto",
+						"test",
+						"dreamListTest02"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "dreamListTest021--\"money\": {                 \"request\":true,",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "ca14c77e-9201-4b89-9b21-53705589f3d0",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "b4e1d1b1-21d5-4a41-9f5c-743c6934e5a5",
+						"exec": [
+							"var responseJSON = pm.response.json();",
+							"pm.expect(responseJSON).to.eql({\"code\":101,\"data\":{\"money\":\"money必须是数字，必填，最小值1，最大值10\"}});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/auto/test/dreamListTest021",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"auto",
+						"test",
+						"dreamListTest021"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "dreamListTest021---\"money\": {                 \"request\":true,--",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "ca14c77e-9201-4b89-9b21-53705589f3d0",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "b4e1d1b1-21d5-4a41-9f5c-743c6934e5a5",
+						"exec": [
+							"var responseJSON = pm.response.json();",
+							"pm.expect(responseJSON).to.eql({\"code\":101,\"data\":{\"money\":\"money必须是数字，必填，最小值1，最大值10\"}});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"dreamListTest021\": \"\"\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/auto/test/dreamListTest021",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"auto",
+						"test",
+						"dreamListTest021"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "dreamListTest022--\"minLength\": 1,--\"elem\":{             \"request\": false,",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "ca14c77e-9201-4b89-9b21-53705589f3d0",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "b4e1d1b1-21d5-4a41-9f5c-743c6934e5a5",
+						"exec": [
+							"var responseJSON = pm.response.json();",
+							"pm.expect(responseJSON).to.eql({\"code\":101,\"data\":{\"dreamListTest022\":\"最小长度1，最大长度4\"}});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"dreamListTest022\": [\r\n    ]\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/auto/test/dreamListTest022",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"auto",
+						"test",
+						"dreamListTest022"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "dreamListTest03--dreamListTest03---\"elem\":{             \"request\": false,",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "ca14c77e-9201-4b89-9b21-53705589f3d0",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "b4e1d1b1-21d5-4a41-9f5c-743c6934e5a5",
+						"exec": [
+							"var responseJSON = pm.response.json();",
+							"pm.expect(responseJSON).to.eql({\"code\":0,\"data\":\"成功\"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"dreamListTest03\": [\r\n    ]\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/auto/test/dreamListTest03",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"auto",
+						"test",
+						"dreamListTest03"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "dreamListTest02-- \"dreamListTest02\": [{}     ]",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "ca14c77e-9201-4b89-9b21-53705589f3d0",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "b4e1d1b1-21d5-4a41-9f5c-743c6934e5a5",
+						"exec": [
+							"var responseJSON = pm.response.json();",
+							"pm.expect(responseJSON).to.eql({\"code\":101,\"data\":{\"money\":\"money必须是数字，必填，最小值1，最大值10\"}});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"dreamListTest02\": [{}\r\n    ]\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/auto/test/dreamListTest02",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"auto",
+						"test",
+						"dreamListTest02"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "dreamListTest02---\"achieveList\":[\"\",\"\"]",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "ca14c77e-9201-4b89-9b21-53705589f3d0",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "b4e1d1b1-21d5-4a41-9f5c-743c6934e5a5",
+						"exec": [
+							"var responseJSON = pm.response.json();",
+							"pm.expect(responseJSON).to.eql({\"code\":101,\"data\":{\"money\":\"money必须是数字，必填，最小值1，最大值10\"}});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"dreamListTest02\": [\r\n        {\r\n            \"achieveList\":[\"\",\"\"]\r\n        }\r\n    ]\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/auto/test/dreamListTest02",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"auto",
+						"test",
+						"dreamListTest02"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "dreamListTest02---\"achieveList\":[\"0\",\"\"]",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "ca14c77e-9201-4b89-9b21-53705589f3d0",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "b4e1d1b1-21d5-4a41-9f5c-743c6934e5a5",
+						"exec": [
+							"var responseJSON = pm.response.json();",
+							"pm.expect(responseJSON).to.eql({\"code\":101,\"data\":{\"achieveList.elem\":\"achieveList元素必须是字母、数字、中文，最小长度2，最大长度20\",\"money\":\"money必须是数字，必填，最小值1，最大值10\"}});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"dreamListTest02\": [\r\n        {\r\n            \"achieveList\":[\"0\",\"\"]\r\n        }\r\n    ]\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/auto/test/dreamListTest02",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"auto",
+						"test",
+						"dreamListTest02"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "dreamListTest03--\"money\": {                 \"request\":true,",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "ca14c77e-9201-4b89-9b21-53705589f3d0",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "b4e1d1b1-21d5-4a41-9f5c-743c6934e5a5",
+						"exec": [
+							"var responseJSON = pm.response.json();",
+							"pm.expect(responseJSON).to.eql({\"code\":101,\"data\":{\"money\":\"money必须是数字，必填，最小值1，最大值10\"}});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"dreamListTest03\": [{}\r\n    ]\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/auto/test/dreamListTest03",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"auto",
+						"test",
+						"dreamListTest03"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "baoBaoList--通过",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "ca14c77e-9201-4b89-9b21-53705589f3d0",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "b4e1d1b1-21d5-4a41-9f5c-743c6934e5a5",
+						"exec": [
+							"var responseJSON = pm.response.json();\r",
+							"pm.expect(responseJSON).to.eql({\"code\":0,\"data\":\"成功\"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"baoBaoList\": [\r\n        {\r\n            \"brand\": \"lv\",\r\n            \"price\": 10,\r\n            \"card\": {\r\n                \"num\": 124654655465476541321,\r\n                \"cardName\": \"card名称\",\r\n                \"consume\":{\r\n                    \"orderList\":[10,20],\r\n                    \"input\":\"收入1\",\r\n                    \"output\":\"消费10\"\r\n                }\r\n            }\r\n        },\r\n        {\r\n            \"brand\": \"lv\",\r\n            \"price\": 10,\r\n            \"card\": {\r\n                \"num\": 124654655465476541321,\r\n                \"cardName\": \"card名称\",\r\n                \"consume\":{\r\n                    \"orderList\":[10,20],\r\n                    \"input\":\"收入1\",\r\n                    \"output\":\"消费10\"\r\n                }\r\n            }\r\n        }\r\n    ]\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/auto/test/baoBaoList",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"auto",
+						"test",
+						"baoBaoList"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "baoBaoList---全错",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "ca14c77e-9201-4b89-9b21-53705589f3d0",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "b4e1d1b1-21d5-4a41-9f5c-743c6934e5a5",
+						"exec": [
+							"var responseJSON = pm.response.json();\r",
+							"pm.expect(responseJSON).to.eql({\"code\":101,\"data\":{\"brand\":\"brand必须是字母、数字、中文，最大长度20\",\"cardName\":\"cardName必须是字母、数字、中文，必填，最大长度20\",\"input\":\"input必须是字母、数字、中文，必填，最小长度2，最大长度20\",\"num\":\"num必须是数字，必填，最大长度200\",\"orderList.elem\":\"orderList元素是数字，必填，最大长度20\",\"output\":\"output必须是字母、数字、中文，最大长度10\",\"price\":\"price必须是数字，必填，最大值200\"}});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"baoBaoList\": [\r\n        {\r\n            \"brand\": \"l·v\",\r\n            \"price\": 1245653,\r\n            \"card\": {\r\n                \"num\": -124654655465476541321,\r\n                \"cardName\": \"car22222222222222222222222222222222222d名称\",\r\n                \"consume\":{\r\n                    \"orderList\":[-10,20],\r\n                    \"input\":\"1\",\r\n                    \"output\":\"消费3333333333333310\"\r\n                }\r\n            }\r\n        }\r\n    ]\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/auto/test/baoBaoList",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"auto",
+						"test",
+						"baoBaoList"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "baoBaoList---{      }",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "ca14c77e-9201-4b89-9b21-53705589f3d0",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "b4e1d1b1-21d5-4a41-9f5c-743c6934e5a5",
+						"exec": [
+							"var responseJSON = pm.response.json();\r",
+							"pm.expect(responseJSON).to.eql({\"code\":101,\"data\":{\"cardName\":\"cardName必须是字母、数字、中文，必填，最大长度20\",\"elem\":\"orderList元素是数字，必填，最大长度20\",\"input\":\"input必须是字母、数字、中文，必填，最小长度2，最大长度20\",\"num\":\"num必须是数字，必填，最大长度200\",\"price\":\"price必须是数字，必填，最大值200\"}});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/auto/test/baoBaoList",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"auto",
+						"test",
+						"baoBaoList"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "baoBaoListRequest---{}",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "ca14c77e-9201-4b89-9b21-53705589f3d0",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "b4e1d1b1-21d5-4a41-9f5c-743c6934e5a5",
+						"exec": [
+							"var responseJSON = pm.response.json();\r",
+							"pm.expect(responseJSON).to.eql({\"code\":0,\"data\":\"成功\"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/auto/test/baoBaoListRequest",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"auto",
+						"test",
+						"baoBaoListRequest"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "\"baoBaoListRequest\":\"\"",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "ca14c77e-9201-4b89-9b21-53705589f3d0",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "b4e1d1b1-21d5-4a41-9f5c-743c6934e5a5",
+						"exec": [
+							"var responseJSON = pm.response.json();\r",
+							"pm.expect(responseJSON).to.eql({\"code\":0,\"data\":\"成功\"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"baoBaoListRequest\":\"\"\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/auto/test/baoBaoListRequest",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"auto",
+						"test",
+						"baoBaoListRequest"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "\"baoBaoListRequest\":[]",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "ca14c77e-9201-4b89-9b21-53705589f3d0",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "b4e1d1b1-21d5-4a41-9f5c-743c6934e5a5",
+						"exec": [
+							"var responseJSON = pm.response.json();\r",
+							"pm.expect(responseJSON).to.eql({\"code\":0,\"data\":\"成功\"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"baoBaoListRequest\":[]\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/auto/test/baoBaoListRequest",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"auto",
+						"test",
+						"baoBaoListRequest"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{     \"baoBaoListRequest02\":{} }",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "ca14c77e-9201-4b89-9b21-53705589f3d0",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "b4e1d1b1-21d5-4a41-9f5c-743c6934e5a5",
+						"exec": [
+							"var responseJSON = pm.response.json();\r",
+							"pm.expect(responseJSON).to.eql({\"code\":101,\"data\":{\"cardName\":\"cardName必须是字母、数字、中文，必填，最大长度20\",\"elem\":\"orderList元素是数字，必填，最大长度20\",\"input\":\"input必须是字母、数字、中文，必填，最小长度2，最大长度20\",\"num\":\"num必须是数字，必填，最大长度200\",\"price\":\"price必须是数字，必填，最大值200\"}});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"baoBaoListRequest02\":[]\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/auto/test/baoBaoListRequest02",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"auto",
+						"test",
+						"baoBaoListRequest02"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "\"baoBaoListRequest\": [         {                      }     ]",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "ca14c77e-9201-4b89-9b21-53705589f3d0",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "b4e1d1b1-21d5-4a41-9f5c-743c6934e5a5",
+						"exec": [
+							"var responseJSON = pm.response.json();\r",
+							"pm.expect(responseJSON).to.eql({\"code\":101,\"data\":{\"price\":\"price必须是数字，必填，最大值200\"}});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"baoBaoListRequest\": [\r\n        {\r\n            \r\n        }\r\n    ]\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/auto/test/baoBaoListRequest",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"auto",
+						"test",
+						"baoBaoListRequest"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "\"baoBaoListRequest\": [         {             \"card\": {                              }         }     ]",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "ca14c77e-9201-4b89-9b21-53705589f3d0",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "b4e1d1b1-21d5-4a41-9f5c-743c6934e5a5",
+						"exec": [
+							"var responseJSON = pm.response.json();\r",
+							"pm.expect(responseJSON).to.eql({\"code\":101,\"data\":{\"cardName\":\"cardName必须是字母、数字、中文，必填，最大长度20\",\"price\":\"price必须是数字，必填，最大值200\"}});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"baoBaoListRequest\": [\r\n        {\r\n            \"card\": {\r\n                \r\n            }\r\n        }\r\n    ]\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/auto/test/baoBaoListRequest",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"auto",
+						"test",
+						"baoBaoListRequest"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "\"baoBaoListRequest\": [         {             \"card\": {                 \"consume\":{                                      }             }         }     ]",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "ca14c77e-9201-4b89-9b21-53705589f3d0",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "b4e1d1b1-21d5-4a41-9f5c-743c6934e5a5",
+						"exec": [
+							"var responseJSON = pm.response.json();\r",
+							"pm.expect(responseJSON).to.eql({\"code\":101,\"data\":{\"cardName\":\"cardName必须是字母、数字、中文，必填，最大长度20\",\"input\":\"input必须是字母、数字、中文，必填，最小长度2，最大长度20\",\"price\":\"price必须是数字，必填，最大值200\"}});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"baoBaoListRequest\": [\r\n        {\r\n            \"card\": {\r\n                \"consume\":{\r\n                    \r\n                }\r\n            }\r\n        }\r\n    ]\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/auto/test/baoBaoListRequest",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"auto",
+						"test",
+						"baoBaoListRequest"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "\"baoBaoListRequest\": [         {             \"card\": {                 \"consume\":{                     \"orderList\":[]                 }             }         }     ]",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "ca14c77e-9201-4b89-9b21-53705589f3d0",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "b4e1d1b1-21d5-4a41-9f5c-743c6934e5a5",
+						"exec": [
+							"var responseJSON = pm.response.json();\r",
+							"pm.expect(responseJSON).to.eql({\"code\":101,\"data\":{\"cardName\":\"cardName必须是字母、数字、中文，必填，最大长度20\",\"input\":\"input必须是字母、数字、中文，必填，最小长度2，最大长度20\",\"orderList\":\"orderList元素是数字，必填，最大长度20\",\"price\":\"price必须是数字，必填，最大值200\"}});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"baoBaoListRequest\": [\r\n        {\r\n            \"card\": {\r\n                \"consume\":{\r\n                    \"orderList\":[]\r\n                }\r\n            }\r\n        }\r\n    ]\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/auto/test/baoBaoListRequest",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"auto",
+						"test",
+						"baoBaoListRequest"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "all01--true",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "ca14c77e-9201-4b89-9b21-53705589f3d0",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "b4e1d1b1-21d5-4a41-9f5c-743c6934e5a5",
+						"exec": [
+							"var responseJSON = pm.response.json();",
+							"pm.expect(responseJSON).to.eql({\"code\":0,\"data\":\"成功\"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": \"12345678910\",\r\n    \"name\": \"名字\",\r\n    \"birthday\": 1538804023486,\r\n    \"single\": true,\r\n    \"salaryNum\": 12345678.44,\r\n    \"bigNum\": 1234214345235461000,\r\n    \"friend\": {\r\n        \"nice\": true,\r\n        \"name\": \"friend名字\"\r\n    },\r\n    \"family\": {\r\n\t    \"num\": 3,\r\n\t    \"mom\":{\r\n\t        \"momName\":\"mom名字\",\r\n\t        \"kindness\":\"温柔美丽，善良贤惠\"\r\n\t    },\r\n\t    \"house\": {\r\n\t        \"area\": 180.180,\r\n\t        \"houseName\": \"豪宅\",\r\n\t        \"window\":{\r\n\t            \"windowHeight\":80,\r\n\t            \"windowWidth\":80\r\n\t        }\r\n\t    }\r\n    },\r\n    \"goddess\":{\r\n\t    \"marry\": false,\r\n\t    \"goddessName\": \"女神名字\",\r\n\t    \"maleGodList\":[{\r\n\t        \"height\": 180,\r\n\t        \"rich\": true,\r\n\t        \"handsome\": true,\r\n\t        \"result\":\"sfad1sssssss2323\",\r\n\t        \"guy\":{\r\n\t            \"guyName\":\"girlNsdfsdame\",\r\n\t            \"age\":18\r\n\t        }\r\n\t    }]\r\n    },\r\n    \"hobbyList\":[123,456],\r\n    \"schoolClassList\":[\r\n\t\t[\"sd\",\"sdf\"],\r\n\t\t[\"讲课费费\",\"方法\"]\r\n   \t],\r\n    \"diningHallList\":[\r\n        [{\r\n            \"cateName\":\"cateName01\",\r\n            \"money\":123\r\n        },{\r\n            \"cateName\":\"cateName02\",\r\n            \"money\":145\r\n        }],        \r\n        [{\r\n            \"cateName\":\"s00\",\r\n            \"money\":121\r\n        },{\r\n            \"cateName\":\"cateName02\",\r\n            \"money\":145\r\n        }]\r\n    ],\r\n    \"dreamList\": [\r\n        {\r\n            \"txt\": \"出任总经理，当上CEO，赢取白富美\",\r\n            \"exe\": \"改变世界\",\r\n            \"time\": 1538804023486,\r\n            \"money\": \"1\",\r\n            \"achieveList\":[\"实现了第一个\", \"实现了第二个\"]\r\n        },\r\n        {\r\n            \"txt\": \"出任总经理，当上CEO，赢取白富美\",\r\n            \"exe\": \"改变世界\",\r\n            \"time\": 1538804023486,\r\n            \"money\": \"10\",\r\n            \"achieveList\":[\"实现了第一个\", \"实现了第二个\"]\r\n        }\r\n    ],\r\n    \"baoBaoList\": [\r\n        {\r\n            \"brand\": \"lv\",\r\n            \"price\": 10,\r\n            \"card\": {\r\n                \"num\": 124654655465476541321,\r\n                \"cardName\": \"card名称\",\r\n                \"consume\":{\r\n                    \"orderList\":[10,20],\r\n                    \"input\":\"收入1\",\r\n                    \"output\":\"消费10\"\r\n                }\r\n            }\r\n        },\r\n        {\r\n            \"brand\": \"lv\",\r\n            \"price\": 10,\r\n            \"card\": {\r\n                \"num\": 124654655465476541321,\r\n                \"cardName\": \"card名称\",\r\n                \"consume\":{\r\n                    \"orderList\":[10,20],\r\n                    \"input\":\"收入1\",\r\n                    \"output\":\"消费10\"\r\n                }\r\n            }\r\n        }\r\n    ]\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/auto/test/all01?str1=sdfad&email=df121@163.com",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"auto",
+						"test",
+						"all01"
+					],
+					"query": [
+						{
+							"key": "str1",
+							"value": "sdfad"
+						},
+						{
+							"key": "email",
+							"value": "df121@163.com"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
