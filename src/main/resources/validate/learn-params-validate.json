@@ -1,0 +1,29 @@
+{
+  "userValidate": {
+    "name": {
+      "request": true,
+      "minLength": 10,
+      "maxLength": 100,
+      "regex": "^[a-zA-Z0-9_]+$",
+      "message": "名字必须是字母、数字、-"
+    },
+    "birthday": {
+      "request": true
+    },
+    "single": {
+      "regex": "^(true)$|^(false)$",
+      "message": "single必须是true、false"
+    },
+    "salaryNum": {
+      "request": "true",
+      "minValue": 100,
+      "maxValue": 1000,
+      "regex": "^\\d+$",
+      "message": "薪水必须是正整数"
+    },
+    "bigNum": {
+      "regex": "^\\d+(\\.\\d+)?$",
+      "message": "bigNum必须正数"
+    }
+  }
+}
