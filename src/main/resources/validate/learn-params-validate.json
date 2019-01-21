@@ -26,31 +26,73 @@
             "message": "bigNum必须正数或0"
         }
     },
-    "userValidate02": {
+
+    "userValidateInit": {
         "name": {
             "request": true,
             "minLength": 10,
             "maxLength": 100,
-            "regex": "^[a-zA-Z0-9_]+$",
+            "regex": "REGEX_CHAR",
             "message": "名字必须是字母、数字、_"
         },
-        "birthday": {
-            "request": true
-        },
         "single": {
-            "regex": "^(true)$|^(false)$",
+            "regex": "REGEX_BOOLEAN",
             "message": "single必须是true、false"
+        }
+    },
+
+    "house": {
+        "houseName": {
+            "request": true,
+            "maxLength": 10,
+            "message": "房间名称不能多于10字符"
         },
-        "salaryNum": {
-            "request": "true",
-            "minValue": 100,
-            "maxValue": 1000,
-            "regex": "^(\\+)?\\d+(\\.\\d+)?$",
-            "message": "薪水必须是正数"
-        },
-        "bigNum": {
-            "regex": "^(\\+)?\\d+(\\.\\d+)?$",
-            "message": "bigNum必须正数或0"
+        "window":{
+//            "request": false,
+            "windowHeight":{
+//                "request": true,
+                "minValue": 1,
+                "maxValue": 1000,
+                "regex": "^(\\+)?\\d+(\\.\\d+)?$",
+                "message": "高度必须是数字"
+            },
+            "windowWidth":{
+                "minValue": 1,
+                "maxValue": 1000,
+                "regex": "^(\\+)?\\d+(\\.\\d+)?$",
+                "message": "宽度必须是数字"
+            }
+        }
+    },
+
+    "hobbyList":{
+        "maxLength": 3,
+        "elem":{
+            "request":true,
+            "maxValue": 200,
+            "regex": "^\\d+$",
+            "message": "0或正整数"
+        }
+    },
+
+    "param": {
+        "cateList":{
+            "maxLength": 3,
+            "elem": {
+                "cateName": {
+                    "request":true,
+                    "maxLength": 40,
+                    "regex": "^[\\u4e00-\\u9fa5a-zA-Z-z0-9]+$",
+                    "message": "字母数字中文"
+                },
+                "money": {
+                    "request":true,
+                    "maxValue": 4,
+                    "regex": "^\\d+$",
+                    "message": "数字"
+                }
+            }
         }
     }
+
 }

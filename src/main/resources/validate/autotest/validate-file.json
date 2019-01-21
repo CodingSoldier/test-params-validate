@@ -33,7 +33,7 @@
             "elem": {
                 "request":true,
                 "maxLength": 40,
-                "regex": "REGEX_WORD",
+                "regex": "REGEX_WORD_NO_SYMBOL",
                 "message": "元素必须是字母数字中文"
             }
         }
@@ -49,7 +49,7 @@
                 "elem": {
                     "request":true,
                     "maxLength": 40,
-                    "regex": "REGEX_WORD",
+                    "regex": "REGEX_WORD_NO_SYMBOL",
                     "message": "字母数字中文"
                 }
             }
@@ -65,7 +65,7 @@
                 "cateName": {
                     "request":true,
                     "maxLength": 40,
-                    "regex": "REGEX_WORD",
+                    "regex": "REGEX_WORD_NO_SYMBOL",
                     "message": "字母数字中文"
                 },
                 "money": {
@@ -89,7 +89,7 @@
                     "cateName": {
                         "request":false,
                         "maxLength": 40,
-                        "regex": "REGEX_WORD",
+                        "regex": "REGEX_WORD_NO_SYMBOL",
                         "message": "字母数字中文"
                     },
                     "money": {
@@ -114,7 +114,7 @@
             "momName":{
                 "request": true,
                 "maxLength": 20,
-                "regex": "REGEX_WORD",
+                "regex": "REGEX_WORD_NO_SYMBOL",
                 "message": "momName必须是字母、数字、中文"
             },
             "kindness":{
@@ -127,13 +127,13 @@
                 "request": false,
                 "minValue": 1,
                 "maxValue": 1000,
-                "regex": "REGEX_NO_NEGATIVE",
+                "regex": "REGEX_POSITIVE_NUM",
                 "message": "area必须是数字"
             },
             "houseName": {
                 "request": true,
                 "maxLength": 10,
-                "regex": "REGEX_WORD",
+                "regex": "REGEX_WORD_NO_SYMBOL",
                 "message": "houseName必须是字母、数字、中文"
             },
             "window":{
@@ -141,14 +141,14 @@
                     "request": true,
                     "minValue": 10,
                     "maxValue": 1000,
-                    "regex": "REGEX_NO_NEGATIVE",
+                    "regex": "REGEX_POSITIVE_NUM",
                     "message": "windowHeight必须是数字"
                 },
                 "windowWidth":{
                     "request": true,
                     "minValue": 1,
                     "maxValue": 1000,
-                    "regex": "REGEX_NO_NEGATIVE",
+                    "regex": "REGEX_POSITIVE_NUM",
                     "message": "windowWidth必须是数字"
                 }
             }
@@ -162,7 +162,7 @@
         "goddessName": {
             "request": true,
             "maxLength": 20,
-            "regex": "REGEX_WORD",
+            "regex": "REGEX_WORD_NO_SYMBOL",
             "message": "goddessName必须是字母、数字、中文"
         },
         "maleGodList":{
@@ -173,7 +173,7 @@
                     "request": true,
                     "minValue": 1,
                     "maxValue": 1000,
-                    "regex": "REGEX_NO_NEGATIVE",
+                    "regex": "REGEX_POSITIVE_NUM",
                     "message": "windowHeight必须是数字"
                 },
                 "rich": {
@@ -186,7 +186,7 @@
                     "request": true,
                     "minLength": 10,
                     "maxLength": 20,
-                    "regex": "REGEX_WORD",
+                    "regex": "REGEX_WORD_NO_SYMBOL",
                     "message": "result必须是字母、数字、中文"
                 },
                 "guy":{
@@ -213,7 +213,7 @@
         },
         "goddessName": {
             "maxLength": 20,
-            "regex": "REGEX_WORD",
+            "regex": "REGEX_WORD_NO_SYMBOL",
             "message": "goddessName必须是字母、数字、中文"
         },
         "maleGodList":{
@@ -223,7 +223,7 @@
                 "height": {
                     "minValue": 1,
                     "maxValue": 1000,
-                    "regex": "REGEX_NO_NEGATIVE",
+                    "regex": "REGEX_POSITIVE_NUM",
                     "message": "windowHeight必须是数字"
                 },
                 "rich": {
@@ -235,7 +235,7 @@
                 "result":{
                     "minLength": 10,
                     "maxLength": 20,
-                    "regex": "REGEX_WORD",
+                    "regex": "REGEX_WORD_NO_SYMBOL",
                     "message": "result必须是字母、数字、中文"
                 },
                 "guy":{
@@ -434,7 +434,7 @@
         "elem":{
             "brand": {
                 "maxLength": 20,
-                "regex": "REGEX_WORD",
+                "regex": "REGEX_WORD_NO_SYMBOL",
                 "message": "brand必须是字母、数字、中文"
             },
             "price": {
@@ -453,7 +453,7 @@
                 "cardName": {
                     "request":true,
                     "maxLength": 20,
-                    "regex": "REGEX_WORD",
+                    "regex": "REGEX_WORD_NO_SYMBOL",
                     "message": "cardName必须是字母、数字、中文"
                 },
                 "consume":{
@@ -469,12 +469,12 @@
                         "request":true,
                         "minLength": 2,
                         "maxLength": 20,
-                        "regex": "REGEX_WORD",
+                        "regex": "REGEX_WORD_NO_SYMBOL",
                         "message": "input必须是字母、数字、中文"
                     },
                     "output":{
                         "maxLength": 10,
-                        "regex": "REGEX_WORD",
+                        "regex": "REGEX_WORD_NO_SYMBOL",
                         "message": "output必须是字母、数字、中文"
                     }
                 }
@@ -488,7 +488,7 @@
             "request":false,
             "brand": {
                 "maxLength": 20,
-                "regex": "REGEX_WORD",
+                "regex": "REGEX_WORD_NO_SYMBOL",
                 "message": "brand必须是字母、数字、中文"
             },
             "price": {
@@ -507,7 +507,7 @@
                 "cardName": {
                     "request":true,
                     "maxLength": 20,
-                    "regex": "REGEX_WORD",
+                    "regex": "REGEX_WORD_NO_SYMBOL",
                     "message": "cardName必须是字母、数字、中文"
                 },
                 "consume":{
@@ -525,12 +525,12 @@
                         "request":true,
                         "minLength": 2,
                         "maxLength": 20,
-                        "regex": "REGEX_WORD",
+                        "regex": "REGEX_WORD_NO_SYMBOL",
                         "message": "input必须是字母、数字、中文"
                     },
                     "output":{
                         "maxLength": 10,
-                        "regex": "REGEX_WORD",
+                        "regex": "REGEX_WORD_NO_SYMBOL",
                         "message": "output必须是字母、数字、中文"
                     }
                 }
@@ -543,7 +543,7 @@
         "elem":{
             "brand": {
                 "maxLength": 20,
-                "regex": "REGEX_WORD",
+                "regex": "REGEX_WORD_NO_SYMBOL",
                 "message": "brand必须是字母、数字、中文"
             },
             "price": {
@@ -563,7 +563,7 @@
                 "cardName": {
                     "request":true,
                     "maxLength": 20,
-                    "regex": "REGEX_WORD",
+                    "regex": "REGEX_WORD_NO_SYMBOL",
                     "message": "cardName必须是字母、数字、中文"
                 },
                 "consume":{
@@ -581,12 +581,12 @@
                         "request":true,
                         "minLength": 2,
                         "maxLength": 20,
-                        "regex": "REGEX_WORD",
+                        "regex": "REGEX_WORD_NO_SYMBOL",
                         "message": "input必须是字母、数字、中文"
                     },
                     "output":{
                         "maxLength": 10,
-                        "regex": "REGEX_WORD",
+                        "regex": "REGEX_WORD_NO_SYMBOL",
                         "message": "output必须是字母、数字、中文"
                     }
                 }
@@ -614,7 +614,7 @@
         "name": {
             "request": true,
             "maxLength": 20,
-            "regex": "REGEX_WORD",
+            "regex": "REGEX_WORD_NO_SYMBOL",
             "message": "name必须是字母、数字、中文"
         },
         "birthday": {
@@ -624,7 +624,7 @@
             "regex": "REGEX_BOOLEAN"
         },
         "salaryNum": {
-            "regex": "REGEX_FLOAT_8_2",
+            "regex": "REGEX_POSITIVE_NUM",
             "message": "salaryNum必须是数字"
         },
         "bigNum": {
@@ -638,7 +638,7 @@
             "name": {
                 "request": true,
                 "maxLength": 20,
-                "regex": "REGEX_WORD",
+                "regex": "REGEX_WORD_NO_SYMBOL",
                 "message": "name必须是字母、数字、中文"
             }
         },
@@ -653,7 +653,7 @@
                 "momName":{
                     "request": true,
                     "maxLength": 20,
-                    "regex": "REGEX_WORD",
+                    "regex": "REGEX_WORD_NO_SYMBOL",
                     "message": "momName必须是字母、数字、中文"
                 },
                 "kindness":{
@@ -666,13 +666,13 @@
                     "request": false,
                     "minValue": 1,
                     "maxValue": 1000,
-                    "regex": "REGEX_NO_NEGATIVE",
+                    "regex": "REGEX_POSITIVE_NUM",
                     "message": "area必须是数字"
                 },
                 "houseName": {
                     "request": true,
                     "maxLength": 10,
-                    "regex": "REGEX_WORD",
+                    "regex": "REGEX_WORD_NO_SYMBOL",
                     "message": "houseName必须是字母、数字、中文"
                 },
                 "window":{
@@ -680,14 +680,14 @@
                         "request": true,
                         "minValue": 10,
                         "maxValue": 1000,
-                        "regex": "REGEX_NO_NEGATIVE",
+                        "regex": "REGEX_POSITIVE_NUM",
                         "message": "windowHeight必须是数字"
                     },
                     "windowWidth":{
                         "request": true,
                         "minValue": 1,
                         "maxValue": 1000,
-                        "regex": "REGEX_NO_NEGATIVE",
+                        "regex": "REGEX_POSITIVE_NUM",
                         "message": "windowWidth必须是数字"
                     }
                 }
@@ -700,7 +700,7 @@
             "goddessName": {
                 "request": true,
                 "maxLength": 20,
-                "regex": "REGEX_WORD",
+                "regex": "REGEX_WORD_NO_SYMBOL",
                 "message": "goddessName必须是字母、数字、中文"
             },
             "maleGodList":{
@@ -711,7 +711,7 @@
                         "request": true,
                         "minValue": 1,
                         "maxValue": 1000,
-                        "regex": "REGEX_NO_NEGATIVE",
+                        "regex": "REGEX_POSITIVE_NUM",
                         "message": "windowHeight必须是数字"
                     },
                     "rich": {
@@ -724,7 +724,7 @@
                         "request": true,
                         "minLength": 10,
                         "maxLength": 20,
-                        "regex": "REGEX_WORD",
+                        "regex": "REGEX_WORD_NO_SYMBOL",
                         "message": "result必须是字母、数字、中文"
                     },
                     "guy":{
@@ -763,7 +763,7 @@
                 "elem": {
                     "request":true,
                     "maxLength": 40,
-                    "regex": "REGEX_WORD",
+                    "regex": "REGEX_WORD_NO_SYMBOL",
                     "message": "元素必须是字母数字中文"
                 }
             }
@@ -777,7 +777,7 @@
                     "cateName": {
                         "request":true,
                         "maxLength": 40,
-                        "regex": "REGEX_WORD",
+                        "regex": "REGEX_WORD_NO_SYMBOL",
                         "message": "字母数字中文"
                     },
                     "money": {
@@ -825,7 +825,7 @@
             "elem":{
                 "brand": {
                     "maxLength": 20,
-                    "regex": "REGEX_WORD",
+                    "regex": "REGEX_WORD_NO_SYMBOL",
                     "message": "brand必须是字母、数字、中文"
                 },
                 "price": {
@@ -844,7 +844,7 @@
                     "cardName": {
                         "request":true,
                         "maxLength": 20,
-                        "regex": "REGEX_WORD",
+                        "regex": "REGEX_WORD_NO_SYMBOL",
                         "message": "cardName必须是字母、数字、中文"
                     },
                     "consume":{
@@ -860,12 +860,12 @@
                             "request":true,
                             "minLength": 2,
                             "maxLength": 20,
-                            "regex": "REGEX_WORD",
+                            "regex": "REGEX_WORD_NO_SYMBOL",
                             "message": "input必须是字母、数字、中文"
                         },
                         "output":{
                             "maxLength": 10,
-                            "regex": "REGEX_WORD",
+                            "regex": "REGEX_WORD_NO_SYMBOL",
                             "message": "output必须是字母、数字、中文"
                         }
                     }
