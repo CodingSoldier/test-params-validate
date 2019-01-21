@@ -1,0 +1,417 @@
+{
+	"info": {
+		"_postman_id": "bc85b6bd-cfa5-4397-8b57-4bf91797f0c6",
+		"name": "params-validate-learn",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "http://localhost:8080/learn/demo1--true",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "ca14c77e-9201-4b89-9b21-53705589f3d0",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "b4e1d1b1-21d5-4a41-9f5c-743c6934e5a5",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"birthday\": \"01-01\",\r\n\t\"bigNum\": 11111111111111,\r\n    \"name\": \"abc4567890\",\r\n    \"single\": true,\r\n    \"salaryNum\": 1000\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/learn/demo1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"learn",
+						"demo1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/learn/demo1",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "ca14c77e-9201-4b89-9b21-53705589f3d0",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "b4e1d1b1-21d5-4a41-9f5c-743c6934e5a5",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"bigNum\": -100,\r\n    \"name\": \"123中文\",\r\n    \"single\": true,\r\n    \"salaryNum\": 99\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/learn/demo1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"learn",
+						"demo1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/learn/userValidateInit",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "ca14c77e-9201-4b89-9b21-53705589f3d0",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "b4e1d1b1-21d5-4a41-9f5c-743c6934e5a5",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"bigNum\": -100,\r\n    \"name\": \"123中文\",\r\n    \"single\": true,\r\n    \"salaryNum\": 99\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/learn/userValidateInit",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"learn",
+						"userValidateInit"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/learn/house--all",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "ca14c77e-9201-4b89-9b21-53705589f3d0",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "b4e1d1b1-21d5-4a41-9f5c-743c6934e5a5",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"area\": 180.180,\r\n    \"houseName\": \"豪宅\",\r\n    \"window\":{\r\n        \"windowHeight\":80,\r\n        \"windowWidth\":80\r\n    }\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/learn/house",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"learn",
+						"house"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/learn/house",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "ca14c77e-9201-4b89-9b21-53705589f3d0",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "b4e1d1b1-21d5-4a41-9f5c-743c6934e5a5",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"area\": 180.180,\r\n    \"houseName\": \"豪宅\"\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/learn/house",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"learn",
+						"house"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/learn/hobbyList",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "ca14c77e-9201-4b89-9b21-53705589f3d0",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "b4e1d1b1-21d5-4a41-9f5c-743c6934e5a5",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"hobbyList\":[123,0,\"a22\",1]\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/learn/hobbyList",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"learn",
+						"hobbyList"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/learn/cateList",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "ca14c77e-9201-4b89-9b21-53705589f3d0",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "b4e1d1b1-21d5-4a41-9f5c-743c6934e5a5",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"cateList\":[{\n            \"cateName\":\"cateName01\",\n            \"money\":4\n        },{\n            \"cateName\":\"cateName02\",\n            \"money\":0\n        }]\t\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/learn/cateList",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"learn",
+						"cateList"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/learn/cateList--false",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "ca14c77e-9201-4b89-9b21-53705589f3d0",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "b4e1d1b1-21d5-4a41-9f5c-743c6934e5a5",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"cateList\":[{\n            \"cateName\":\"cateName01\",\n            \"money\":40\n        },{\n            \"cateName\":\"cateName02\",\n            \"money\":0\n        }]\t\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/learn/cateList",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"learn",
+						"cateList"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
