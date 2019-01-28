@@ -175,4 +175,13 @@ public class AutoTestMap {
         return map1;
     }
 
+    @PostMapping("/requestElem")
+    @ParamsValidate(value = "/autotest/validate-file.json", key = "requestElem")
+    public Object requestElem(@RequestBody Map<String, Object> map){
+        Map<String, Object> map1 = new HashMap<>();
+        map1.put("code", 0);
+        map1.put("data", "成功");
+        return map1;
+    }
+
 }

@@ -872,6 +872,21 @@
                 }
             }
         }
+    },
+
+    "requestElem": {
+        "request":{
+            "request":true,
+            "minLength": 2,
+            "maxLength": 20,
+            "message": "request提示信息"
+        },
+        "elem":{
+            "request":true,
+            "minLength": 2,
+            "maxLength": 20,
+            "message": "elem提示信息"
+        }
     }
 
 }

@@ -4095,6 +4095,112 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "requestElem--false",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "ca14c77e-9201-4b89-9b21-53705589f3d0",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "b4e1d1b1-21d5-4a41-9f5c-743c6934e5a5",
+						"exec": [
+							"var responseJSON = pm.response.json();",
+							"pm.expect(responseJSON).to.eql({\"code\":101,\"data\":{\"elem\":\"elem提示信息，必填，最小长度2，最大长度20\",\"request\":\"request提示信息，必填，最小长度2，最大长度20\"}});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"request\":1,\n\t\"elem\":2\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/auto/test/requestElem",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"auto",
+						"test",
+						"requestElem"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "requestElem--true",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "ca14c77e-9201-4b89-9b21-53705589f3d0",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "b4e1d1b1-21d5-4a41-9f5c-743c6934e5a5",
+						"exec": [
+							"var responseJSON = pm.response.json();",
+							"pm.expect(responseJSON).to.eql({\"code\":0,\"data\":\"成功\"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"request\":11,\n\t\"elem\":21\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/auto/test/requestElem",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"auto",
+						"test",
+						"requestElem"
+					]
+				}
+			},
+			"response": []
 		}
 	]
 }
