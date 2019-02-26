@@ -9,31 +9,30 @@ import com.github.codingsoldier.paramsvalidate.bean.ResultValidate;
 import com.github.codingsoldier.paramsvalidate.bean.ValidateConfig;
 import com.google.gson.Gson;
 import org.springframework.beans.factory.InitializingBean;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Component;
 
-import java.util.*;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.TreeMap;
 
 @Component
 public class ValidateInterfaceImpl extends ValidateInterfaceAdapter implements InitializingBean {
-    @Autowired
-    RedisTemplate redisTemplate;
-
-    //类属性初始化后，删除redis缓存校验规则
+    //@Autowired
+    //RedisTemplate redisTemplate;
+    //
+    ////类属性初始化后，删除redis缓存校验规则
     @Override
     public void afterPropertiesSet() throws Exception {
-        ExecutorService es = Executors.newFixedThreadPool(1);
-        es.execute(new Runnable() {
-            @Override
-            public void run() {
-                Set<String> keys = redisTemplate.keys(basePath().replace("/",":") + "*");
-                redisTemplate.delete(keys);
-            }
-        });
-        es.shutdown();
+        //ExecutorService es = Executors.newFixedThreadPool(1);
+        //es.execute(new Runnable() {
+        //    @Override
+        //    public void run() {
+        //        Set<String> keys = redisTemplate.keys(basePath().replace("/",":") + "*");
+        //        redisTemplate.delete(keys);
+        //    }
+        //});
+        //es.shutdown();
     }
 
     //redis
@@ -116,20 +115,20 @@ public class ValidateInterfaceImpl extends ValidateInterfaceAdapter implements I
      * ValidateConfig这个对象储存@ParamsValidate注解的值
      * 获取@ParamsValidate中的key在redis中的校验规则
      */
-    @Override
-    public Map<String, Object> getKeyCache(ValidateConfig validateConfig) {
-        String redisKey = createRedisKey(validateConfig);
-        return (Map<String, Object>)redisTemplate.opsForHash().get(redisKey, validateConfig.getKey());
-    }
+    //@Override
+    //public Map<String, Object> getKeyCache(ValidateConfig validateConfig) {
+    //    String redisKey = createRedisKey(validateConfig);
+    //    return (Map<String, Object>)redisTemplate.opsForHash().get(redisKey, validateConfig.getKey());
+    //}
 
     /**
      * 将整个json文件的内容存储为hash结构
      */
-    @Override
-    public void setFileCache(ValidateConfig validateConfig, Map<String, Map<String, Object>> json) {
-        String redisKey = createRedisKey(validateConfig);
-        redisTemplate.opsForHash().putAll(redisKey, json);
-    }
+    //@Override
+    //public void setFileCache(ValidateConfig validateConfig, Map<String, Map<String, Object>> json) {
+    //    String redisKey = createRedisKey(validateConfig);
+    //    redisTemplate.opsForHash().putAll(redisKey, json);
+    //}
 
     /**
      * 使用basePath()返回的目录名+@ParamsValidate的file文件名作为redis的key
@@ -141,21 +140,6 @@ public class ValidateInterfaceImpl extends ValidateInterfaceAdapter implements I
         String temp = basePath + fileName;
         return temp.replaceAll("[\\/\\-]",":");
     }
-
-
-    ////项目启动时，删除redis缓存校验规则
-    //@Override
-    //public void afterPropertiesSet() throws Exception {
-    //    ExecutorService es = Executors.newFixedThreadPool(1);
-    //    es.execute(new Runnable() {
-    //        @Override
-    //        public void run() {
-    //            Set<String> keys = redisTemplate.keys(basePath().replace("/",":") + "*");
-    //            redisTemplate.delete(keys);
-    //        }
-    //    });
-    //    es.shutdown();
-    //}
 
 }
 

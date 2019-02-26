@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 @RestController
 @RequestMapping("/auto/test")
@@ -19,7 +21,7 @@ public class AutoTestMap {
         Map<String, Object> map1 = new HashMap<>();
         map1.put("code", 0);
         map1.put("data", "成功");
-        return map1;
+       return map1;
     }
 
     @PostMapping("/hobbyListTest01")
